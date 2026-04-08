@@ -42,7 +42,7 @@ export default function ImageSlider() {
             JP&amp;G Locations
           </h2>
 
-          <p className="text-[16px] text-gray-500 leading-relaxed mb-8 lg:pr-[20%]">
+          <p className="text-[16px] text-gray-500 leading-relaxed mb-8 lg:pr-[20%] font-['Avenir']">
             We have stores scattered throughout Utah. Check out
             the products and information for the store nearest you!
           </p>

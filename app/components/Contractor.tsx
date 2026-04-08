@@ -84,10 +84,10 @@ function AccordionItem({
                 className="flex w-full items-center justify-between gap-4 py-5 text-left cursor-pointer"
             >
                 <div className="flex items-center gap-4">
-                    <span className="text-2xl font-semibold text-black mt-0.5 shrink-0">
+                    <span className="md:text-[20px] text-[18px] font-semibold text-black mt-0.5 shrink-0">
                         {String(index).padStart(2, '0')}
                     </span>
-                    <h3 className="text-2xl font-bold text-black font-['Avenir']">{question}</h3>
+                    <h3 className="md:text-[20px] text-[18px] font-bold text-black font-['Avenir']">{question}</h3>
                 </div>
                 <span className="shrink-0 text-[#0052C6] text-xl font-light leading-none">
                     {isOpen ? '−' : '+'}
@@ -99,11 +99,11 @@ function AccordionItem({
                     }`}
             >
                 <div className="overflow-hidden">
-                    <div className="pb-5 pl-10 md:pr-[25%] pr-0 text-md leading-relaxed text-gray-600">
+                    <div className="pb-5 pl-10 md:pr-[10%] pr-0 text-md leading-relaxed text-gray-600">
                         {highlight && (
-                            <p className="text-lg font-semibold text-gray-800 mb-1">{highlight}</p>
+                            <p className="text-[14px] font-semibold text-gray-800 mb-1 font-['Avenir']">{highlight}</p>
                         )}
-                        <p className="text-lg text-gray-600 font-[Avenir]">{answer}</p>
+                        <p className="text-[14px] text-gray-600 font-[Avenir]">{answer}</p>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@ export default function Contractor() {
     return (
         <section className="relative z-1 bg-white py-16 md:py-24 overflow-hidden">
             <div
-                className="absolute bottom-0 right-0 w-full pointer-events-none"
+                className="absolute bottom-0 right-0 w-full pointer-events-none" id='contract-element'
                 style={{
                     backgroundImage: 'url(/assets/jt/elements/paint-2.png)',
                     backgroundSize: 'contain',
@@ -132,21 +132,21 @@ export default function Contractor() {
                     transformOrigin: 'bottom right',
                 }}
             />
-            <div className="mx-auto container px-4">
-                <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16 lg:gap-24">
+            <div className="mx-auto container px-4 md:px-6">
+                    <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-10 lg:gap-12">
 
                     {/* Left: Heading + Buttons */}
-                    <div className="flex-1 md:w-72 lg:w-80 shrink-0">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 leading-tight font-['Avenir']">
+                    <div className="lg:w-[40%] w-full text-center lg:text-start">
+                        <h2 className="text-[28px] md:text-[34px] lg:text-[48px] font-bold text-black mb-4 leading-tight font-['Avenir']">
                             Contractor Services
                         </h2>
-                        <p className="text-md text-gray-500 leading-relaxed mb-8 md:pr-[20%] pr-0">
+                        <p className="text-[16px] text-gray-500 leading-relaxed mb-8 lg:pr-[20%] pr-0 font-['Avenir']">
                             We’re DIY pros, but we also provide products and services to contractors throughout Utah.
                         </p>
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap justify-center lg:justify-start gap-3">
                             <a
                                 href="#"
-                                className="group inline-flex items-center gap-2 rounded-lg bg-[#0052C6] px-5 py-3 text-sm font-semibold text-white hover:bg-black transition-colors"
+                                className="group inline-flex items-center gap-2 rounded-md bg-[#0052C6] px-5 py-3 text-sm font-semibold text-white hover:bg-black transition-colors"
                             >
                                 Get a Quote
                                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none">
@@ -161,7 +161,7 @@ export default function Contractor() {
                             </a>
                             <a
                                 href="#"
-                                className="group inline-flex items-center gap-2 rounded-lg border border-blue-600 px-5 py-3 text-sm font-semibold text-black hover:border-black hover:bg-transparent transition-colors"
+                                className="group inline-flex items-center gap-2 rounded-md border border-2 border-[#0052C6] px-5 py-3 text-sm font-semibold text-[#0052C6] hover:border-black hover:bg-transparent transition-colors"
                             >
                                 Get a Quote
                                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none">
@@ -178,7 +178,7 @@ export default function Contractor() {
                     </div>
 
                     {/* Right: Accordion */}
-                    <div className="flex-2">
+                    <div className="lg:w-[60%] w-full">
                         {faqs.map((faq, i) => (
                             <AccordionItem
                                 key={faq.id}
@@ -195,13 +195,13 @@ export default function Contractor() {
                 </div>
 
             </div>
-            <div className="bg-white py-12 px-4 md:px-6">
-                <div className="container px-5 py-24 mx-auto ">
-                    <div className="w-full mb-20">
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-['Avenir'] title-font text-black lg:mb-0 mb-4">See What Our Contractors Have Done</h1>
+            <div className="bg-white pt-12 px-4 md:px-6">
+                <div className="container mx-auto ">
+                    <div className="w-full mb-10 sm:mb-20">
+                        <h1 className="text-[28px] md:text-[30px] lg:text-[32px] text-center md:text-start font-bold font-['Avenir'] title-font text-black lg:mb-0 mb-4">See What Our Contractors Have Done</h1>
                     </div>
                     {/* Grid */}
-                    <div className="grid grid-cols-4 grid-rows-2 gap-7 h-[600px]">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 grid-rows-2 gap-4 sm:gap-7 h-fit lg:h-[600px]">
 
                         {/* Left large image — spans 2 rows */}
                         <div className="relative col-span-1 row-span-2 rounded-2xl overflow-hidden">
@@ -211,10 +211,10 @@ export default function Contractor() {
                                 className="w-full h-full object-cover"
                             />
                             {/* Caption overlay */}
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white/80 to-transparent px-4 pb-5 pt-30 rounded-b-2xl">
-                                <div className="mx-auto w-[80%] flex flex-col">
-                                    <p className="text-black text-md font-bold leading-tight">Jones Vinyl Windows</p>
-                                    <p className="text-black/80 text-sm mt-0.5">Journey's End: 2024 Parade of Homes</p>
+                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white/80 to-transparent px-2 sm:px-4 pb-5 pt-30 rounded-b-2xl">
+                                <div className="mx-auto w-full sm:w-[80%] flex flex-col font-['Avenir']">
+                                    <p className="text-black text-[14px] font-bold leading-tight">Jones Vinyl Windows</p>
+                                    <p className="text-black/80 text-[14px] mt-0.5">Journey's End: 2024 Parade of Homes</p>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +238,7 @@ export default function Contractor() {
 
                                 {/* Hover Overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end p-4">
-                                    <p className="text-black/80 text-sm leading-tight mx-auto w-[80%]">{images.bottomRight.desc}</p>
+                                    <p className="text-black/80 text-[14px] leading-tight mx-auto w-full sm:w-[80%]">{images.bottomRight.desc}</p>
                                 </div>
                             </div>
                         ))}
@@ -256,7 +256,7 @@ export default function Contractor() {
                                 className="w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end p-4">
-                                <p className="text-black/80 text-sm mt-0.5 mx-auto w-[80%]">{images.bottomLeft.desc}</p>
+                                <p className="text-black/80 text-sm mt-0.5 mx-auto w-full sm:w-[80%]">{images.bottomLeft.desc}</p>
                             </div>
                         </div>
 
@@ -273,7 +273,7 @@ export default function Contractor() {
                                 className="w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end p-4">
-                                <p className="text-black/80 text-sm mt-0.5 mx-auto w-[80%]">{images.bottomRight.desc}</p>
+                                <p className="text-black/80 text-sm mt-0.5 mx-auto w-full sm:w-[80%]">{images.bottomRight.desc}</p>
                             </div>
                         </div>
                     </div>
