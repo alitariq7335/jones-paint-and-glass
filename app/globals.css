@@ -1,9 +1,38 @@
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap'); */
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
+
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('/fonts/AvenirLTStd-Book.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* @font-face {
+    font-family: 'Avenir';
+    src: url('/fonts/AvenirLTStd-Roman.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+} */
+/* 
+@font-face {
+    font-family: 'Avenir';
+    src: url('/fonts/AvenirLTStd-Black.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+} */
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +41,25 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial;
 }
+
+
+#hero{
+  background: linear-gradient(279.45deg, #FFFFFF 0.08%, rgba(255, 255, 255, 0.94) 25.87%, rgba(255, 255, 255, 0.87) 47.2%, rgba(255, 255, 255, 0) 73.51%);
+}
+#hero .container{
+box-shadow: 0px 4px 19.6px 0px #0000001A;
+
+}
+
