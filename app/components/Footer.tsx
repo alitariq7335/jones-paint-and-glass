@@ -5,7 +5,9 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <section className="footer bg-[url('/images/footer.png')] bg-center bg-no-repeat bg-cover">
+    <section className="footer  bg-center bg-no-repeat bg-cover"
+     style={{ backgroundImage: "url('/assets/images/footer.png')" }}
+     >
       <div className="container mx-auto flex justify-between py-12 px-4">
         <div className="f-menu flex text-white space-x-16">
           <div className="home">
@@ -54,13 +56,13 @@ export default function Footer() {
         </div>
       </div>
       <div className="copyright container mx-auto px-4 flex justify-between items-center pb-8 text-white">
-        <img src="/images/logo.png" alt="" />
+        <img src="/assets/images/logo.png" alt="" />
         <p className="text-[12px]">© 2026 Jones Paint & Glass. All rights reserved.</p>
         <div className="social flex space-x-4">
-          <img src='/images/linkedin.png' className="w-6 h-6 text-blue-600 cursor-pointer" />
-          <img src='/images/facebook.png' className="w-6 h-6 text-pink-500 cursor-pointer" />
-          <img src='/images/instagram.png' className="w-6 h-6 text-sky-500 cursor-pointer" />
-          <img src='/images/x.png' className="w-6 h-6 text-blue-700 cursor-pointer" />
+          <img src='/assets/images/linkedin.png' className="w-6 h-6 text-blue-600 cursor-pointer" />
+          <img src='/assets/images/facebook.png' className="w-6 h-6 text-pink-500 cursor-pointer" />
+          <img src='/assets/images/instagram.png' className="w-6 h-6 text-sky-500 cursor-pointer" />
+          <img src='/assets/images/x.png' className="w-6 h-6 text-blue-700 cursor-pointer" />
         </div>
       </div>
     </section>
