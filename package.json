@@ -7,10 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-  "payload": "cross-env NODE_OPTIONS=--no-experimental-fetch payload"
+    "payload": "cross-env NODE_OPTIONS=--no-experimental-fetch payload"
   },
-
-
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@payloadcms/db-mongodb": "3.81.0",
