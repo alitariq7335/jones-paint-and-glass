@@ -5,7 +5,7 @@ export default function Hero() {
     <div className="h-147.5 relative bg-red-400 mt-17.5" id="hero">
       <div className="image absolute w-full">
         <img
-          src="images/hero.jpg"
+          src="/assets/images/hero.jpg"
           className="h-147.5 object-cover w-full -z-10 relative"
         />
       </div>

@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 // ─── Types ───────────────────────────────────
 type NavSubItem = {
@@ -247,7 +246,7 @@ export default function Navbar({ navData }: { navData: NavData }) {
   const navItems = (navData?.navItems as NavItem[]) ?? FALLBACK_NAV_ITEMS;
   const ctaText = navData?.ctaText ?? "Get a Quote";
   const ctaLink = navData?.ctaLink ?? "/contact";
-  const logoUrl = navData?.logo?.url ?? "/images/logo.png";
+  const logoUrl = navData?.logo?.url ?? "/assets/images/logo.png";
   const logoAlt = navData?.logo?.alt ?? "Company Logo";
 
   return (
@@ -264,6 +263,7 @@ export default function Navbar({ navData }: { navData: NavData }) {
           {/* Logo */}
           <Link href="/" aria-label="Go to homepage">
             <img src={logoUrl} className="h-24 -mb-12  mr-12" alt={logoAlt} />
+            
           </Link>
           {navItems.map((item) => (
             <li key={item.label} role="none">
