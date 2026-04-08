@@ -63,3 +63,74 @@ box-shadow: 0px 4px 19.6px 0px #0000001A;
 
 }
 
+/* Component Product Service */
+
+#service-element-2 {
+  display: none !important;
+}
+
+@media (max-width:768px) {
+  #service-element {
+    display: none !important;
+  }
+
+  #service-element-2 {
+    display: block !important;
+
+  }
+
+}
+
+@media (max-width: 640px) {
+  #service-element-2 {
+    top: -135px;
+  }
+
+  #service-cards {
+    padding: 0 120px;
+  }
+
+}
+
+@media (max-width: 540px) {
+
+  #service-cards {
+    padding: 0 60px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  #service-element-2 {
+    top: -50px;
+  }
+
+    #service-cards {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  #service-element-2 {
+    top: 20px;
+  }
+}
+
+/* ============END============= */
+
+/* ============jp-slider============ */
+
+@media (max-width: 1700px) and (min-width: 1300px) {
+  #jp-slider{
+    padding-right: 5%;
+  }
+}
+
+@media (max-width: 1400px) and (min-width: 1300px) {
+  #jp-slider{
+    padding-right: 5%;
+  }
+}
+
+
+/* ===================END=================== */

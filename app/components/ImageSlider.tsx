@@ -7,6 +7,7 @@ import type { Swiper as SwiperType } from 'swiper';
 import Image from 'next/image';
 
 import 'swiper/css';
+import 'swiper/css/navigation';
 
 const locations = [
   { id: 1, name: 'St George',     img: '/assets/jt/location-1.png' },
@@ -30,32 +31,38 @@ export default function ImageSlider() {
   };
 
   return (
-    <section className="mt-[-100px] pr-[10%] pt-40 pb-20 overflow-hidden bg-gradient-to-b from-[#0052C6] to-[#002559]">
+    <section className="mt-[-100px] pr-[10%] pt-40 pb-20 overflow-hidden bg-gradient-to-b from-[#0052C6] to-[#002559]" id='jp-slider'>
 
-      <div className="flex items-end justify-center bg-white py-10 rounded-r-3xl gap-2">
+      {/* GRID CONTAINER */}
+      <div className="grid grid-cols-12 items-end bg-white py-10 rounded-r-3xl gap-6">
 
-        {/* Left Side */}
-        <div className="w-[60%] pl-10">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 leading-tight font-['Avenir']">
+        {/* LEFT SIDE */}
+        <div className="col-span-12 lg:col-span-5 pl-6 lg:pl-10 pr-6 lg:pr-0">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-black mb-4 leading-tight font-['Avenir']">
             JP&amp;G Locations
           </h2>
-          <p className="text-md text-gray-500 leading-relaxed mb-8 pr-[30%]">
+
+          <p className="text-[16px] text-gray-500 leading-relaxed mb-8 lg:pr-[20%]">
             We have stores scattered throughout Utah. Check out
             the products and information for the store nearest you!
           </p>
+
           <div className="flex gap-3">
+            {/* PREV BUTTON */}
             <button
               ref={prevRef}
-              className="w-11 h-11 rounded-full bg-[#6dcab3] hover:bg-[#4aaa93] 
+              className="w-11 h-11 rounded-full bg-[#D9FDED] hover:bg-[#A5EBCD]
                          flex items-center justify-center transition-colors cursor-pointer"
             >
               <svg className="w-8 h-8 stroke-black fill-none" strokeWidth={1.2} viewBox="0 0 24 24">
-                <polyline points="15 18 9 12 15 6" /> 
+                <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
+
+            {/* NEXT BUTTON */}
             <button
               ref={nextRef}
-              className="w-11 h-11 rounded-full bg-[#6dcab3] hover:bg-[#4aaa93] 
+              className="w-11 h-11 rounded-full bg-[#D9FDED] hover:bg-[#A5EBCD]
                          flex items-center justify-center transition-colors cursor-pointer"
             >
               <svg className="w-8 h-8 stroke-black fill-none" strokeWidth={1.2} viewBox="0 0 24 24">
@@ -65,43 +72,45 @@ export default function ImageSlider() {
           </div>
         </div>
 
-        {/* Right Side: Swiper */}
-        <div className="w-full overflow-hidden">
+        {/* RIGHT SIDE (SWIPER) */}
+        <div className="col-span-12 lg:col-span-7 overflow-hidden">
           <Swiper
             modules={[Navigation]}
             loop={true}
             onBeforeInit={handleBeforeInit}
-            slidesPerView={2.3}
+            slidesPerView={1.1}
             spaceBetween={16}
             breakpoints={{
               640:  { slidesPerView: 1.5 },
-              768:  { slidesPerView: 2.3 },
-              1024: { slidesPerView: 2 },
+              768:  { slidesPerView: 2 },
+              1024: { slidesPerView: 2.2 },
               1200: { slidesPerView: 2.5 },
-              1300: { slidesPerView: 2.8 },
-              1450: { slidesPerView: 3},
+              1400: { slidesPerView: 3 },
             }}
           >
             {locations.map((loc) => (
               <SwiperSlide key={loc.id}>
                 <div className="relative rounded-xl overflow-hidden border border-gray-100 bg-white">
-                  
-                  {/* Image */}
-                  <div className="relative w-full h-[450px] lg:h-[400px] md:h-[380px]">
+
+                  {/* IMAGE */}
+                  <div className="relative w-full h-[350px] md:h-[380px] lg:h-[420px]">
                     <Image
                       src={loc.img}
                       alt={loc.name}
                       fill
-                      className="object-center object-fill"
+                      className="object-cover"
                     />
                   </div>
 
-                  {/* Card Footer */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-white/95 rounded-xl px-5 py-4 w-[90%] mx-auto mb-4">
+                  {/* FOOTER */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-white/95 rounded-xl px-5 py-4 w-[90%] mx-auto mb-4 shadow-sm">
                     <h3 className="font-bold text-gray-900 text-lg mb-1">
                       {loc.name}
                     </h3>
-                    <a href="#" className="text-sm text-gray-500 hover:text-[#4aaa93] transition-colors">
+                    <a
+                      href="#"
+                      className="text-sm text-gray-500 hover:text-[#4aaa93] transition-colors"
+                    >
                       Store Info
                     </a>
                   </div>
