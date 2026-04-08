@@ -1,5 +1,7 @@
 import React from "react";
 import { FaArrowRight, FaSearch } from 'react-icons/fa'
+import Image from 'next/image'
+
 
 export default function Footer() {
   return (
