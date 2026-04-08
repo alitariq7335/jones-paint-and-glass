@@ -1,7 +1,7 @@
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import { useRef } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import Image from 'next/image';
@@ -10,13 +10,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 const locations = [
-  { id: 1, name: 'St George',     img: '/assets/jt/location-1.png' },
+  { id: 1, name: 'St George', img: '/assets/jt/location-1.png' },
   { id: 2, name: 'American Fork', img: '/assets/jt/location-2.png' },
-  { id: 3, name: 'Payson',        img: '/assets/jt/location-3.png' },
+  { id: 3, name: 'Payson', img: '/assets/jt/location-3.png' },
   { id: 4, name: 'American Fork', img: '/assets/jt/location-2.png' },
-  { id: 5, name: 'Payson',        img: '/assets/jt/location-3.png' },
-  { id: 6, name: 'St George',     img: '/assets/jt/location-1.png' },
-  { id: 7, name: 'Payson',        img: '/assets/jt/location-3.png' },
+  { id: 5, name: 'Payson', img: '/assets/jt/location-3.png' },
+  { id: 6, name: 'St George', img: '/assets/jt/location-1.png' },
+  { id: 7, name: 'Payson', img: '/assets/jt/location-3.png' },
 ];
 
 export default function ImageSlider() {
@@ -75,17 +75,21 @@ export default function ImageSlider() {
         {/* RIGHT SIDE (SWIPER) */}
         <div className="col-span-12 lg:col-span-7 overflow-hidden">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             loop={true}
             onBeforeInit={handleBeforeInit}
             slidesPerView={1.1}
             spaceBetween={16}
             breakpoints={{
-              640:  { slidesPerView: 1.5 },
-              768:  { slidesPerView: 2 },
+              640: { slidesPerView: 1.5 },
+              768: { slidesPerView: 2 },
               1024: { slidesPerView: 2.2 },
               1200: { slidesPerView: 2.5 },
               1400: { slidesPerView: 3 },
+            }}
+            autoplay={{
+              delay: 2500,      // 3 seconds between slides
+              disableOnInteraction: false, // continue autoplay after user interaction
             }}
           >
             {locations.map((loc) => (
@@ -104,12 +108,12 @@ export default function ImageSlider() {
 
                   {/* FOOTER */}
                   <div className="absolute bottom-0 left-0 right-0 bg-white/95 rounded-xl px-5 py-4 w-[90%] mx-auto mb-4 shadow-sm">
-                    <h3 className="font-bold text-gray-900 text-lg mb-1">
+                    <h3 className="font-bold text-gray-900 text-[20px] mb-1">
                       {loc.name}
                     </h3>
                     <a
                       href="#"
-                      className="text-sm text-gray-500 hover:text-[#4aaa93] transition-colors"
+                      className="text-[16px] text-gray-500"
                     >
                       Store Info
                     </a>
