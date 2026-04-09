@@ -12,14 +12,15 @@ const blockMap: Record<string, React.ComponentType<any>> = {
 export default async function DynamicPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;  // ✅ Now a Promise
 }) {
+  const { slug } = await params;  // ✅ Await it
+
   const payload = await getPayload({ config });
 
-  // Cast to 'any' to bypass stale types until generate:types works
   const { docs } = await (payload as any).find({
     collection: "pages",
-    where: { slug: { equals: params.slug } },
+    where: { slug: { equals: slug } },  // ✅ Use destructured slug
     depth: 2,
     limit: 1,
   });
