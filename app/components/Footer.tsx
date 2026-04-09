@@ -5,11 +5,14 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <section className="footer  bg-center bg-no-repeat bg-cover"
+    <section className="footer bg-center bg-no-repeat bg-cover"
      style={{ backgroundImage: "url('/assets/images/footer.png')" }}
      >
-      <div className="container mx-auto flex justify-between py-12 px-4">
-        <div className="f-menu flex text-white space-x-16">
+       <div className="md:hidden container mx-auto px-4 flex flex-col items-center pt-5">
+        <img src="/assets/images/logo.png" alt="" />
+      </div>
+      <div className="f-contant container mx-auto flex flex-wrap flex-col md:flex-row justify-between py-12 px-4">
+        <div className="f-menu flex flex-wrap justify-between text-white text-center md:text-start space-x-16 space-y-10">
           <div className="home">
             <h3 className="font-bold tracking-widest mb-8">HOME</h3>
             <ul className="space-y-2 text-[12px]">
@@ -55,8 +58,8 @@ export default function Footer() {
           <button className="bg-[#A5EBCD] flex items-center mt-4 py-2 px-4 rounded font-medium">Get a Quote <FaArrowRight className="w-3 h-3 ml-2" /> </button>
         </div>
       </div>
-      <div className="copyright container mx-auto px-4 flex justify-between items-center pb-8 text-white">
-        <img src="/assets/images/logo.png" alt="" />
+      <div className="copyright container mx-auto px-4 flex flex-col gap-5 md:gap-0 md:flex-row justify-between items-center pb-8 text-white">
+        <img src="/assets/images/logo.png" className="md:flex hidden" alt="" />
         <p className="text-[12px]">© 2026 Jones Paint & Glass. All rights reserved.</p>
         <div className="social flex space-x-4">
           <img src='/assets/images/linkedin.png' className="w-6 h-6 text-blue-600 cursor-pointer" />
