@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 import { DiySliderBlock } from '../blocks/DiySlider.block'
+import { HeroBlock } from '../blocks/Hero.block'
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -28,7 +29,7 @@ const Pages: CollectionConfig = {
       label: 'Page Blocks',
       blocks: [
         DiySliderBlock,
-        // ← drop new blocks here later
+        HeroBlock,
       ],
     },
   ],
