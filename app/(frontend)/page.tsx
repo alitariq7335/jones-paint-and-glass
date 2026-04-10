@@ -1,24 +1,76 @@
-import Hero from "../components/Hero";
-import Productservices from "../components/Productservices";
-import Contractor from "../components/Contractor";
-import Footer from "../components/Footer";
-import ImageSlider from "../components/ImageSlider";
-import Diyslider from "../components/Diyslider";
-import Navbar from "../components/Navbar";
+import { getPayload } from "payload";
+import config from "@/payload.config";
+import { notFound } from "next/navigation";
+import Hero from "@/app/components/Hero";
+import DiySlider from "@/app/components/Diyslider";
+import ProductServices from "@/app/components/Productservices";
+import ImageSlider from "@/app/components/ImageSlider";
+import Contractor from "@/app/components/Contractor";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
 import { getNavigation } from "@/lib/getNavigation";
 
 const navData = await getNavigation();
 
-export default function Home() {
+const blockMap: Record<string, React.ComponentType<any>> = {
+  hero: Hero,
+  diySlider: DiySlider,
+  productServices: ProductServices,
+  imageSlider: ImageSlider,
+};
+
+export default async function Home() {
+  const payload = await getPayload({ config });
+
+  // Query for home page (slug: "home")
+  const { docs } = await (payload as any).find({
+    collection: "pages",
+    where: { slug: { equals: "home" } },
+    depth: 2,
+    limit: 1,
+  });
+
+  const page = docs[0];
+
+  // If no home page created in Payload, show fallback
+  if (!page) {
+    return (
+      <>
+        <Navbar navData={navData} />
+        <div className="flex items-center justify-center h-screen">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4">No Home Page Found</h1>
+            <p className="text-gray-600 mb-6">
+              Create a page with slug "home" in Payload CMS admin
+            </p>
+            <a
+              href="http://localhost:3000/admin/collections/pages"
+              className="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700"
+            >
+              Go to Payload Admin
+            </a>
+          </div>
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
   return (
-    <section>
+    <>
       <Navbar navData={navData} />
-      <Hero />
-      <Productservices />
-      <ImageSlider />
+      
+      {/* Render blocks from Payload */}
+      {(page.blocks ?? []).map((block: any, i: number) => {
+        const Component = blockMap[block.blockType];
+        if (!Component) return null;
+        return <Component key={i} {...block} />;
+      })}
+
+      {/* Keep Contractor section (if you want it outside blocks) */}
       <Contractor />
-      <Diyslider />
+      
       <Footer />
-    </section>
+    </>
   );
 }
