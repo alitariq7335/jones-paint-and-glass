@@ -2,7 +2,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import Image from 'next/image';
 
@@ -32,8 +32,26 @@ export default function ImageSlider({
 }: ImageSliderBlockProps) {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Reset Swiper when locations change
+  useEffect(() => {
+    if (locations.length > 0) {
+      setIsLoading(true);
+      // Give swiper time to reinitialize
+      const timer = setTimeout(() => {
+        if (swiperRef.current) {
+          swiperRef.current.update();
+        }
+        setIsLoading(false);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [locations.length]);
 
   const handleBeforeInit = (swiper: SwiperType) => {
+    swiperRef.current = swiper;
     if (typeof swiper.params.navigation === 'object' && swiper.params.navigation) {
       swiper.params.navigation.prevEl = prevRef.current;
       swiper.params.navigation.nextEl = nextRef.current;
@@ -62,6 +80,7 @@ export default function ImageSlider({
               ref={prevRef}
               className="w-11 h-11 rounded-full bg-[#D9FDED] hover:bg-[#A5EBCD]
                          flex items-center justify-center transition-colors cursor-pointer"
+              aria-label="Previous slide"
             >
               <svg className="w-8 h-8 stroke-black fill-none" strokeWidth={1.2} viewBox="0 0 24 24">
                 <polyline points="15 18 9 12 15 6" />
@@ -73,6 +92,7 @@ export default function ImageSlider({
               ref={nextRef}
               className="w-11 h-11 rounded-full bg-[#D9FDED] hover:bg-[#A5EBCD]
                          flex items-center justify-center transition-colors cursor-pointer"
+              aria-label="Next slide"
             >
               <svg className="w-8 h-8 stroke-black fill-none" strokeWidth={1.2} viewBox="0 0 24 24">
                 <polyline points="9 6 15 12 9 18" />
@@ -83,55 +103,68 @@ export default function ImageSlider({
 
         {/* RIGHT SIDE (SWIPER) */}
         <div className="col-span-12 lg:col-span-7 overflow-hidden">
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            loop={true}
-            onBeforeInit={handleBeforeInit}
-            slidesPerView={1.1}
-            spaceBetween={16}
-            breakpoints={{
-              640: { slidesPerView: 1.5 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 2.2 },
-              1200: { slidesPerView: 2.5 },
-              1400: { slidesPerView: 3 },
-            }}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-          >
-            {locations.map((loc, index) => (
-              <SwiperSlide key={loc.id || index}>
-                <div className="relative rounded-xl overflow-hidden border border-gray-100 bg-white">
+          {isLoading ? (
+            <div className="flex items-center justify-center h-[420px] bg-gray-100 rounded-xl">
+              <div className="animate-pulse text-gray-400">Loading locations...</div>
+            </div>
+          ) : (
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              loop={locations.length > 1}
+              onBeforeInit={handleBeforeInit}
+              slidesPerView={1.1}
+              spaceBetween={16}
+              breakpoints={{
+                640: { slidesPerView: 1.5 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 2.2 },
+                1200: { slidesPerView: 2.5 },
+                1400: { slidesPerView: 3 },
+              }}
+              autoplay={
+                locations.length > 1
+                  ? {
+                      delay: 2500,
+                      disableOnInteraction: false,
+                    }
+                  : false
+              }
+            >
+              {locations.map((loc, index) => (
+                <SwiperSlide key={loc.id || index}>
+                  <div className="relative rounded-xl overflow-hidden border border-gray-100 bg-white">
 
-                  {/* IMAGE */}
-                  <div className="relative w-full h-[350px] md:h-[380px] lg:h-[420px]">
-                    <Image
-                      src={loc.image?.url ?? '/assets/jt/location-1.png'}
-                      alt={loc.image?.alt ?? loc.name}
-                      fill
-                      className="object-cover"
-                    />
+                    {/* IMAGE */}
+                    <div className="relative w-full h-[350px] md:h-[380px] lg:h-[420px]">
+                      <Image
+                        src={loc.image?.url ?? '/assets/jt/location-1.png'}
+                        alt={loc.image?.alt ?? loc.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
+                        loading="lazy"
+                        quality={75}
+                      />
+                    </div>
+
+                    {/* FOOTER */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-white/95 rounded-xl px-5 py-4 w-[90%] mx-auto mb-4 shadow-sm">
+                      <h3 className="font-bold text-gray-900 text-[20px] mb-1">
+                        {loc.name}
+                      </h3>
+                      <a
+                        href={loc.storeInfoLink}
+                        className="text-[16px] text-gray-500 hover:text-gray-700 transition-colors"
+                      >
+                        Store Info
+                      </a>
+                    </div>
+
                   </div>
-
-                  {/* FOOTER */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-white/95 rounded-xl px-5 py-4 w-[90%] mx-auto mb-4 shadow-sm">
-                    <h3 className="font-bold text-gray-900 text-[20px] mb-1">
-                      {loc.name}
-                    </h3>
-                    <a
-                      href={loc.storeInfoLink}
-                      className="text-[16px] text-gray-500 hover:text-gray-700 transition-colors"
-                    >
-                      Store Info
-                    </a>
-                  </div>
-
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
         </div>
 
       </div>

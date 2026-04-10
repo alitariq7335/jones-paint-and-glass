@@ -258,7 +258,7 @@ export default function Navbar({ navData }: { navData: NavData }) {
       <div className="container flex items-center justify-between mx-auto px-4 py-3">
 
         {/* Desktop Menu */}
-        <ul className="hidden lg:flex items-center gap-1 font-medium" role="menubar">
+        <ul className="hidden lg:flex items-center gap-3 font-medium" role="menubar">
           {/* Logo */}
           <Link href="/" aria-label="Go to homepage">
             <img src={logoUrl} className="h-24 -mb-12 mr-0 xl:mr-10 lg:mr-3" alt={logoAlt} />
