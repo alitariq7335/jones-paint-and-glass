@@ -25,7 +25,7 @@ type ImageSliderBlockProps = {
   locations?: Location[]
 }
 
-export default function ImageSliderBlock({
+export default function ImageSlider({
   heading = 'JP&G Locations',
   description = 'We have stores scattered throughout Utah. Check out the products and information for the store nearest you!',
   locations = [],

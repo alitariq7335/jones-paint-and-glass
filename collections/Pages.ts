@@ -2,7 +2,7 @@ import type { CollectionConfig } from 'payload'
 import { DiySliderBlock } from '../blocks/DiySlider.block'
 import { HeroBlock } from '../blocks/Hero.block'
 import { ProductServicesBlock } from '@/blocks/ProductService.block'
-import { ImageSliderBlock } from '@/blocks/Imageslider.block'
+import { ImageSliderBlock } from '@/blocks/ImageSlider.block'
 
 const Pages: CollectionConfig = {
   slug: 'pages',
