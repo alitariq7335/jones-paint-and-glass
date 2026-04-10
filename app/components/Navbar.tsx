@@ -138,7 +138,7 @@ function DropdownMenu({ label, items }: { label: string; items: NavSubItem[] }) 
         onClick={toggle}
         aria-expanded={open}
         aria-haspopup="true"
-        className="flex items-center gap-1 py-2 px-3 font-bold text-heading hover:text-fg-brand transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+        className="flex items-center gap-1 py-2 px-3 font-bold text-heading xl:text-[16px] lg:text-[14px] hover:text-fg-brand transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
       >
         {label}
         <svg
@@ -184,7 +184,7 @@ function MobileMenu({ items, ctaText, ctaLink, onClose }: {
     setOpenLabel((prev) => (prev === label ? null : label));
 
   return (
-    <div className="md:hidden border-t border-default bg-neutral-primary px-4 py-3 space-y-0.5">
+    <div className="lg:hidden border-t border-default bg-neutral-primary pt-10 px-4 py-3 space-y-0.5">
       {items.map((item) =>
         item.type === "link" ? (
           <NavLink
@@ -255,16 +255,16 @@ export default function Navbar({ navData }: { navData: NavData }) {
       aria-label="Main navigation"
       className="bg-neutral-primary fixed w-full z-20 top-0 inset-s-0 border-b border-default"
     >
-      <div className="max-w-7xl flex items-center justify-between mx-auto px-4 py-3">
-
+      <div className="container flex items-center justify-between mx-auto px-4 py-3">
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-1 font-medium" role="menubar">
+        <ul className="hidden lg:flex items-center gap-1 font-medium" role="menubar">
           {/* Logo */}
           <Link href="/" aria-label="Go to homepage">
-            <img src={logoUrl} className="h-24 -mb-12  mr-12" alt={logoAlt} />
-            
+            <img src={logoUrl} className="h-24 -mb-12 mr-0 xl:mr-10 lg:mr-3" alt={logoAlt} />
+
           </Link>
+
           {navItems.map((item) => (
             <li key={item.label} role="none">
               {item.type === "link" ? (
@@ -276,11 +276,47 @@ export default function Navbar({ navData }: { navData: NavData }) {
           ))}
         </ul>
 
+          
+        {/* Logo */}
+        <Link href="/" aria-label="Go to homepage">
+          <img src={logoUrl} className="flex lg:hidden h-24 -mb-12 mr-12" alt={logoAlt} />
+
+        </Link>
+        
         {/* CTA + Hamburger */}
         <div className="flex items-center gap-3">
+
+          {/* Search Icon Button */}
+          <button
+            aria-label="Search"
+            className="hidden lg:flex gap-2 items-center justify-center w-10 h-10 rounded-full hover:bg-neutral-secondary-soft cursor-pointer"
+          >
+            <svg
+              className="w-5 h-5 text-[#0052C6]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+          </button>
           <Link href={ctaLink}>
-            <button className="hidden md:block text-white bg-[#0052C6] hover:bg-brand-strong font-medium rounded-base text-sm px-4 py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+            <button className="hidden lg:inline-flex items-center gap-2 text-white bg-[#0052C6] hover:bg-brand-strong font-medium rounded-[8px] text-[16px] xl:px-5 lg:px-4 xl:py-3 lg:py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand cursor-pointer">
               {ctaText}
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
           </Link>
           <button
@@ -288,7 +324,7 @@ export default function Navbar({ navData }: { navData: NavData }) {
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            className="md:hidden p-2 text-body rounded-base hover:bg-neutral-secondary-soft hover:text-heading transition-colors focus:outline-none"
+            className="lg:hidden p-2 text-body rounded-base hover:bg-neutral-secondary-soft hover:text-heading transition-colors focus:outline-none"
           >
             {mobileOpen ? (
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">

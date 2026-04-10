@@ -84,7 +84,7 @@ function AccordionItem({
                 className="flex w-full items-center justify-between gap-4 py-5 text-left cursor-pointer"
             >
                 <div className="flex items-center gap-4">
-                    <span className="md:text-[20px] text-[18px] font-semibold text-black mt-0.5 shrink-0">
+                    <span className="md:text-[20px] text-[18px] font-semibold text-black shrink-0">
                         {String(index).padStart(2, '0')}
                     </span>
                     <h3 className="md:text-[20px] text-[18px] font-bold text-black font-['Avenir']">{question}</h3>
@@ -146,7 +146,7 @@ export default function Contractor() {
                         <div className="flex flex-wrap justify-center lg:justify-start gap-3">
                             <a
                                 href="#"
-                                className="group inline-flex items-center gap-2 rounded-md bg-[#0052C6] px-5 py-3 text-sm font-semibold text-white hover:bg-black transition-colors"
+                                className="group inline-flex items-center gap-2 rounded-[8px] bg-[#0052C6] px-5 py-3 text-[16px] font-semibold text-white hover:bg-black transition-colors"
                             >
                                 Get a Quote
                                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none">
@@ -161,7 +161,7 @@ export default function Contractor() {
                             </a>
                             <a
                                 href="#"
-                                className="group inline-flex items-center gap-2 rounded-md border border-2 border-[#0052C6] px-5 py-3 text-sm font-semibold text-[#0052C6] hover:border-black hover:bg-transparent transition-colors"
+                                className="group inline-flex items-center gap-2 rounded-[8px] border border-2 border-[#0052C6] px-5 py-3 text-[16px] font-semibold text-[#0052C6] hover:text-black hover:border-black hover:bg-transparent transition-colors"
                             >
                                 Get a Quote
                                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none">
