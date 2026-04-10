@@ -9,17 +9,27 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const locations = [
-  { id: 1, name: 'St George', img: '/assets/jt/location-1.png' },
-  { id: 2, name: 'American Fork', img: '/assets/jt/location-2.png' },
-  { id: 3, name: 'Payson', img: '/assets/jt/location-3.png' },
-  { id: 4, name: 'American Fork', img: '/assets/jt/location-2.png' },
-  { id: 5, name: 'Payson', img: '/assets/jt/location-3.png' },
-  { id: 6, name: 'St George', img: '/assets/jt/location-1.png' },
-  { id: 7, name: 'Payson', img: '/assets/jt/location-3.png' },
-];
+type Location = {
+  id?: string
+  name: string
+  image: {
+    url: string
+    alt?: string
+  }
+  storeInfoLink: string
+}
 
-export default function ImageSlider() {
+type ImageSliderBlockProps = {
+  heading?: string
+  description?: string
+  locations?: Location[]
+}
+
+export default function ImageSliderBlock({
+  heading = 'JP&G Locations',
+  description = 'We have stores scattered throughout Utah. Check out the products and information for the store nearest you!',
+  locations = [],
+}: ImageSliderBlockProps) {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
 
@@ -39,12 +49,11 @@ export default function ImageSlider() {
         {/* LEFT SIDE */}
         <div className="col-span-12 lg:col-span-5 pl-6 lg:pl-10 pr-6 lg:pr-0">
           <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-black mb-4 leading-tight font-['Avenir']">
-            JP&amp;G Locations
+            {heading}
           </h2>
 
           <p className="text-[16px] text-gray-500 leading-relaxed mb-8 lg:pr-[20%] font-['Avenir']">
-            We have stores scattered throughout Utah. Check out
-            the products and information for the store nearest you!
+            {description}
           </p>
 
           <div className="flex gap-3">
@@ -88,19 +97,19 @@ export default function ImageSlider() {
               1400: { slidesPerView: 3 },
             }}
             autoplay={{
-              delay: 2500,      // 3 seconds between slides
-              disableOnInteraction: false, // continue autoplay after user interaction
+              delay: 2500,
+              disableOnInteraction: false,
             }}
           >
-            {locations.map((loc) => (
-              <SwiperSlide key={loc.id}>
+            {locations.map((loc, index) => (
+              <SwiperSlide key={loc.id || index}>
                 <div className="relative rounded-xl overflow-hidden border border-gray-100 bg-white">
 
                   {/* IMAGE */}
                   <div className="relative w-full h-[350px] md:h-[380px] lg:h-[420px]">
                     <Image
-                      src={loc.img}
-                      alt={loc.name}
+                      src={loc.image?.url ?? '/assets/jt/location-1.png'}
+                      alt={loc.image?.alt ?? loc.name}
                       fill
                       className="object-cover"
                     />
@@ -112,8 +121,8 @@ export default function ImageSlider() {
                       {loc.name}
                     </h3>
                     <a
-                      href="#"
-                      className="text-[16px] text-gray-500"
+                      href={loc.storeInfoLink}
+                      className="text-[16px] text-gray-500 hover:text-gray-700 transition-colors"
                     >
                       Store Info
                     </a>

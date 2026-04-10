@@ -3,10 +3,19 @@ import config from "@/payload.config";
 import { notFound } from "next/navigation";
 import Hero from "@/app/components/Hero";
 import DiySlider from "@/app/components/Diyslider";
+import Navbar from "@/app/components/Navbar";
+import { getNavigation } from "@/lib/getNavigation";
+import Footer from "@/app/components/Footer";
+import ProductServices from "@/app/components/Productservices";
+import ImageSlider from "@/app/components/ImageSlider";
+
+const navData = await getNavigation();
 
 const blockMap: Record<string, React.ComponentType<any>> = {
   hero: Hero,
   diySlider: DiySlider,
+  productServices: ProductServices,
+  imageSlider:ImageSlider,
 };
 
 export default async function DynamicPage({
@@ -30,11 +39,13 @@ export default async function DynamicPage({
 
   return (
     <>
+    <Navbar navData={navData} />
       {(page.blocks ?? []).map((block: any, i: number) => {
         const Component = blockMap[block.blockType];
         if (!Component) return null;
         return <Component key={i} {...block} />;
       })}
+      <Footer/>
     </>
   );
 }
