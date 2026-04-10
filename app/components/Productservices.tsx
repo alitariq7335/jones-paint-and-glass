@@ -1,28 +1,28 @@
-import React from 'react'
+import React from "react";
 
 type Service = {
-  id?: string
-  title: string
+  id?: string;
+  title: string;
   image: {
-    url: string
-    alt?: string
-  }
-  link: string
-}
+    url: string;
+    alt?: string;
+  };
+  link: string;
+};
 
 type ProductServicesBlockProps = {
-  heading?: string
-  description?: string
-  ctaText?: string
-  ctaLink?: string
-  services?: Service[]
-}
+  heading?: string;
+  description?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  services?: Service[];
+};
 
 export default function ProductServicesBlock({
-  heading = 'Products & Services',
-  description = 'Paint and glass are in our name, but our offerings expand beyond just that. We also do both commercial and residential doors and garage doors.',
-  ctaText = 'Get a Quote',
-  ctaLink = '#',
+  heading = "Products & Services",
+  description = "Paint and glass are in our name, but our offerings expand beyond just that. We also do both commercial and residential doors and garage doors.",
+  ctaText = "Get a Quote",
+  ctaLink = "#",
   services = [],
 }: ProductServicesBlockProps) {
   return (
@@ -32,26 +32,26 @@ export default function ProductServicesBlock({
         className="absolute sm:bottom-[-160px] left-0 w-full pointer-events-none z-2"
         id="service-element"
         style={{
-          backgroundImage: 'url(/assets/jt/elements/paint-1.png)',
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'bottom left',
-          height: '100%',
-          transform: 'rotate(0deg)',
-          transformOrigin: 'bottom left',
+          backgroundImage: "url(/assets/jt/elements/paint-1.png)",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "bottom left",
+          height: "100%",
+          transform: "rotate(0deg)",
+          transformOrigin: "bottom left",
         }}
       />
       <div
         className="absolute top-[-200px] left-0 w-full pointer-events-none z-2"
         id="service-element-2"
         style={{
-          backgroundImage: 'url(/assets/jt/elements/paint-1.png)',
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'top left',
-          height: '100%',
-          transform: 'rotate(45deg)',
-          transformOrigin: 'top left',
+          backgroundImage: "url(/assets/jt/elements/paint-1.png)",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "top left",
+          height: "100%",
+          transform: "rotate(45deg)",
+          transformOrigin: "top left",
         }}
       />
 
@@ -68,7 +68,7 @@ export default function ProductServicesBlock({
             <div className="relative z-2 flex flex-wrap justify-center xl:justify-start gap-3">
               <a
                 href={ctaLink}
-                className="group inline-flex items-center gap-2 rounded-md bg-[#A5EBCD] px-5 py-3 text-[16px] font-bold text-black transition-colors hover:bg-[#8eddb8]"
+                className="group inline-flex items-center gap-2 rounded-[8px] bg-[#A5EBCD] px-5 py-3 text-[16px] font-semibold text-black transition-colors"
               >
                 {ctaText}
                 <svg
@@ -86,6 +86,7 @@ export default function ProductServicesBlock({
                 </svg>
               </a>
             </div>
+            
           </div>
 
           {/* Right: Service Cards */}
@@ -103,7 +104,7 @@ export default function ProductServicesBlock({
                   {/* Image */}
                   <div className="h-44 md:h-52 overflow-hidden rounded-md">
                     <img
-                      src={service.image?.url ?? '#'}
+                      src={service.image?.url ?? "#"}
                       alt={service.image?.alt ?? service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -138,5 +139,5 @@ export default function ProductServicesBlock({
         </div>
       </div>
     </section>
-  )
+  );
 }
