@@ -44,7 +44,7 @@ export default async function Home() {
               Create a page with slug "home" in Payload CMS admin
             </p>
             <a
-              href="http://localhost:3000/admin/collections/pages"
+              href={`${process.env.NEXT_PUBLIC_SERVER_URL}/admin`}
               className="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700"
             >
               Go to Payload Admin
