@@ -13,17 +13,13 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || 'mysecret123',
-
-  // ✅ Fix 1: Use environment variable for serverURL
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
-
   editor: lexicalEditor(),
 
   db: mongooseAdapter({
     url: process.env.DATABASE_URI!,
   }),
 
-  // ✅ Fix 2: Add CORS and CSRF for live domain
   cors: [
     'http://localhost:3000',
     process.env.NEXT_PUBLIC_SERVER_URL || '',
@@ -64,7 +60,11 @@ export default buildConfig({
     },
     Media,
     Posts,
+    Pages,       // ✅ Navigation removed from here
+  ],
+
+  // ✅ Navigation moved here as a global
+  globals: [
     Navigation,
-    Pages,
   ],
 })

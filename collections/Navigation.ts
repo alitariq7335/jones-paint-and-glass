@@ -1,9 +1,9 @@
-import type { CollectionConfig } from 'payload'
+import type { GlobalConfig } from 'payload'
 
-const Navigation: CollectionConfig = {
+const Navigation: GlobalConfig = {
   slug: 'navigation',
   admin: {
-    useAsTitle: 'ctaText',
+    group: 'Globals',
   },
   fields: [
     {
