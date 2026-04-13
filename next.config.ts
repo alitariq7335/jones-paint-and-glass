@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 import path from "path";
 
+const getHostname = (url?: string): string => {
+  if (!url) return 'your-vercel-domain.vercel.app';
+  try {
+    const withProtocol = url.startsWith('http') ? url : `https://${url}`;
+    return new URL(withProtocol).hostname;
+  } catch {
+    return url; // fallback: treat it as a raw hostname
+  }
+};
+
 const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
@@ -14,12 +24,9 @@ const nextConfig: NextConfig = {
         port: '3000',
         pathname: '/api/media/**',
       },
-      // ✅ Fix 3: Add your Vercel domain for production images
       {
         protocol: 'https',
-        hostname: process.env.NEXT_PUBLIC_SERVER_URL
-          ? new URL(process.env.NEXT_PUBLIC_SERVER_URL).hostname
-          : 'your-vercel-domain.vercel.app',
+        hostname: getHostname(process.env.NEXT_PUBLIC_SERVER_URL),
         pathname: '/api/media/**',
       },
     ],
