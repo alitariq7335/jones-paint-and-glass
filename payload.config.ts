@@ -12,33 +12,37 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  // Secret key for auth tokens
   secret: process.env.PAYLOAD_SECRET || 'mysecret123',
 
-  // Where your app runs
-  serverURL: 'http://localhost:3000',
+  // ✅ Fix 1: Use environment variable for serverURL
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
 
-  // Rich text editor
   editor: lexicalEditor(),
 
-  // Database connection
   db: mongooseAdapter({
     url: process.env.DATABASE_URI!,
   }),
 
-  // Admin panel settings
+  // ✅ Fix 2: Add CORS and CSRF for live domain
+  cors: [
+    'http://localhost:3000',
+    process.env.NEXT_PUBLIC_SERVER_URL || '',
+  ].filter(Boolean),
+
+  csrf: [
+    'http://localhost:3000',
+    process.env.NEXT_PUBLIC_SERVER_URL || '',
+  ].filter(Boolean),
+
   admin: {
     user: 'users',
   },
 
-  // TypeScript types auto-generation
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
 
-  // All collections
   collections: [
-    // Users - handles authentication
     {
       slug: 'users',
       auth: true,
@@ -58,8 +62,6 @@ export default buildConfig({
         },
       ],
     },
-
-    // Media and Posts from separate files
     Media,
     Posts,
     Navigation,
