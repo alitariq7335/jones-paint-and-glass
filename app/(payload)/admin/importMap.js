@@ -24,11 +24,12 @@ import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 // ✅ Custom blocks
-import { HeroBlock as HeroBlock_custom } from '../../../../../blocks/Hero.block'
-import { ProductServicesBlock as ProductServicesBlock_custom } from '../../../../../blocks/ProductService.block'
-import { ImageSliderBlock as ImageSliderBlock_custom } from '../../../../../blocks/ImageSlider.block'
-import { DiySliderBlock as DiySliderBlock_custom } from '../../../../../blocks/DiySlider.block'
-import { Contractor as ContractorBlock_custom } from '../../../../../blocks/Contractor.block'
+import { HeroBlock as HeroBlock_custom } from '../../../blocks/Hero.block'
+import { ProductServicesBlock as ProductServicesBlock_custom } from '../../../blocks/ProductService.block'
+import { ImageSliderBlock as ImageSliderBlock_custom } from '../../../blocks/ImageSlider.block'
+import { DiySliderBlock as DiySliderBlock_custom } from '../../../blocks/DiySlider.block'
+import { Contractor as ContractorBlock_custom } from '../../../blocks/Contractor.block'
+
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
