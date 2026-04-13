@@ -8,7 +8,6 @@ import { getNavigation } from "@/lib/getNavigation";
 import Footer from "@/app/components/Footer";
 import ProductServices from "@/app/components/Productservices";
 import ImageSlider from "@/app/components/ImageSlider";
-import Contractor from "@/app/components/Contractor";
 
 const navData = await getNavigation();
 
@@ -17,7 +16,6 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   diySlider: DiySlider,
   productServices: ProductServices,
   imageSlider:ImageSlider,
-  contractor:Contractor,
 };
 
 export default async function DynamicPage({
