@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cross-env NODE_OPTIONS=--no-experimental-fetch payload generate:importMap && cross-env NODE_OPTIONS=--no-experimental-fetch payload generate:types && next build",
     "start": "next start",
     "lint": "eslint",
     "payload": "cross-env NODE_OPTIONS=--no-experimental-fetch payload"
