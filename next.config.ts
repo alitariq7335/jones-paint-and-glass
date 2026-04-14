@@ -2,12 +2,12 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const getHostname = (url?: string): string => {
-  if (!url) return 'your-vercel-domain.vercel.app';
+  if (!url) return 'jones-paint-and-glass.up.railway.app';
   try {
     const withProtocol = url.startsWith('http') ? url : `https://${url}`;
     return new URL(withProtocol).hostname;
   } catch {
-    return url; // fallback: treat it as a raw hostname
+    return url;
   }
 };
 
@@ -18,6 +18,13 @@ const nextConfig: NextConfig = {
 
   images: {
     remotePatterns: [
+      // Localhost — all possible Payload media paths
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/media/**',
+      },
       {
         protocol: 'http',
         hostname: 'localhost',
@@ -25,9 +32,26 @@ const nextConfig: NextConfig = {
         pathname: '/api/media/**',
       },
       {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/api/media/file/**',
+      },
+      // Production (Railway) — all possible Payload media paths
+      {
+        protocol: 'https',
+        hostname: getHostname(process.env.NEXT_PUBLIC_SERVER_URL),
+        pathname: '/media/**',
+      },
+      {
         protocol: 'https',
         hostname: getHostname(process.env.NEXT_PUBLIC_SERVER_URL),
         pathname: '/api/media/**',
+      },
+      {
+        protocol: 'https',
+        hostname: getHostname(process.env.NEXT_PUBLIC_SERVER_URL),
+        pathname: '/api/media/file/**',
       },
     ],
   },
