@@ -88,7 +88,7 @@ export const Contractor: Block = {
       name: 'topRowImages',
       type: 'array',
       label: 'Top Row Images (3 images)',
-      minRows: 3,
+      minRows: 1,
       maxRows: 3,
       fields: [
         {

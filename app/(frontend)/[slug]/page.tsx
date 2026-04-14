@@ -17,7 +17,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   diySlider: DiySlider,
   productServices: ProductServices,
   imageSlider:ImageSlider,
-  Contractor:Contractor,
+  contractor:Contractor,
 };
 
 export default async function DynamicPage({

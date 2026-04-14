@@ -114,13 +114,13 @@ export default function Contractor({
   bottomRightImageDescription = 'Open Floor Plan with Mountain View',
 }: ContractorBlockProps) {
   // ✅ Don't render if no required data provided
-  if (!faqs || faqs.length === 0) {
-    return null
-  }
+//   if (!faqs || faqs.length === 0) {
+//     return null
+//   }
 
-  if (!largeImage || !topRowImages || topRowImages.length === 0 || !bottomLeftImage || !bottomRightImage) {
-    return null
-  }
+//   if (!largeImage || !topRowImages || topRowImages.length === 0 || !bottomLeftImage || !bottomRightImage) {
+//     return null
+//   }
 
   const [openId, setOpenId] = useState<string | null>(
     faqs && faqs.length > 0 ? faqs[0].id || '0' : null
