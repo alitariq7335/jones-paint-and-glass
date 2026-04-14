@@ -163,13 +163,68 @@ body {
 
 }
 
-@media (max-width: 768px) {
+
+@media only screen and (max-width: 750px) {
+
+  .text-box{
+    padding: 2rem !important;
+    width: 100% !important;
+    height: 100% ;
+    margin-top: 160px;
+  }
+  .text-box .jp{
+    flex-direction: column;
+  }
+  
+  .text-box .blue-box{
+    max-width: 300px;
+    margin-left: 0;
+    /* padding: 0.5rem 0.7rem; */
+    
+  }
+
+  .text-box .blue-box .text-xl{
+    /* margin-left: 0; */
+  }
+}
+
+@media only screen and (max-width: 400px) {
+
+  .text-box .blue-box{
+    max-width: auto;
+    margin-left: 0;
+    /* padding: 0.5rem 0.7rem; */
+    
+  }
+
+  .text-box{
+    text-align: center;
+  }
+
+  .text-box .blue-box h3{
+    margin-left: 0;
+  }
+
+  .text-box .jp .text-xl{
+    font-size: 18px;
+    text-align: center;
+  }
+  .text-box .jp .text-7xl{
+    font-size: 4rem;
+    text-align: center;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+
 
   .f-menu .home,
   .f-menu .glass,
   .f-menu .paint {
     margin-right: 0 !important;
   }
+
 }
 
 @media (max-width: 450px) {
