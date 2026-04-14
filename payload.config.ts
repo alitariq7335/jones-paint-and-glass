@@ -4,7 +4,6 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import Media from './collections/Media'
-import Posts from './collections/Posts'
 import Navigation from './collections/Navigation'
 import Pages from './collections/Pages'
 
@@ -59,7 +58,6 @@ export default buildConfig({
       ],
     },
     Media,
-    Posts,
     Pages,       // ✅ Navigation removed from here
   ],
 
