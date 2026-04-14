@@ -10,7 +10,7 @@ import ProductServices from "@/app/components/Productservices";
 import ImageSlider from "@/app/components/ImageSlider";
 import Contractor from "@/app/components/Contractor";
 
-const navData = await getNavigation();
+export const dynamic = 'force-dynamic';
 
 const blockMap: Record<string, React.ComponentType<any>> = {
   hero: Hero,
@@ -21,10 +21,14 @@ const blockMap: Record<string, React.ComponentType<any>> = {
 };
 
 export default async function DynamicPage({
+  
   params,
 }: {
   params: Promise<{ slug: string }>;  // ✅ Now a Promise
 }) {
+
+  const navData = await getNavigation();
+
   const { slug } = await params;  // ✅ Await it
 
   const payload = await getPayload({ config });
