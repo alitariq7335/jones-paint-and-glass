@@ -10,7 +10,7 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { getNavigation } from "@/lib/getNavigation";
 
-const navData = await getNavigation();
+export const dynamic = 'force-dynamic';
 
 const blockMap: Record<string, React.ComponentType<any>> = {
   hero: Hero,
@@ -21,6 +21,8 @@ const blockMap: Record<string, React.ComponentType<any>> = {
 };
 
 export default async function Home() {
+  const navData = await getNavigation();
+
   const payload = await getPayload({ config });
 
   // Query for home page (slug: "home")
