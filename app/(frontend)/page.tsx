@@ -17,6 +17,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   diySlider: DiySlider,
   productServices: ProductServices,
   imageSlider: ImageSlider,
+  contractor:Contractor,
 };
 
 export default async function Home() {
@@ -67,8 +68,7 @@ export default async function Home() {
         return <Component key={i} {...block} />;
       })}
 
-      {/* Keep Contractor section (if you want it outside blocks) */}
-      <Contractor />
+   
       
       <Footer />
     </>
