@@ -155,8 +155,11 @@ export default function Diyslider({
                 }}
               >
                 {slides.map((slide, index) => {
-                  const imageUrl = slide.image?.url ?? '/assets/jt/diy-1.png';
-                  const imageAlt = slide.image?.alt ?? slide.name;
+                  const imageUrl =
+                    slide.image?.url && slide.image.url.trim() !== ''
+                      ? slide.image.url
+                      : '/assets/jt/default.jpg'
+                  const imageAlt = slide.image?.alt || slide.name
 
                   return (
                     <SwiperSlide key={slide.id || index}>

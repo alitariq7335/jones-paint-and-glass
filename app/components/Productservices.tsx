@@ -104,8 +104,12 @@ export default function ProductServicesBlock({
                   {/* Image */}
                   <div className="h-44 md:h-52 overflow-hidden rounded-md">
                     <img
-                      src={service.image?.url ?? "#"}
-                      alt={service.image?.alt ?? service.title}
+                      src={
+                        service.image?.url && service.image.url.trim() !== ''
+                          ? service.image.url
+                          : '/assets/jt/default.jpg'
+                      }
+                      alt={service.image?.alt || service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
