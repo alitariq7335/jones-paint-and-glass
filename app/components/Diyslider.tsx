@@ -152,6 +152,7 @@ export default function Diyslider({
                 autoplay={{
                   delay: 2500,
                   disableOnInteraction: false,
+                  
                 }}
               >
                 {slides.map((slide, index) => {
