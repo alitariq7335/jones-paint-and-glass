@@ -132,11 +132,17 @@ export default function Contractor({
     }
   }
 
-  const getImageUrl = (image: any): string => {
-    if (!image) return '/assets/jt/ser-1.jpg'
-    if (typeof image === 'string') return image
-    return image?.url || '/assets/jt/ser-1.jpg'
-  }
+ const getImageUrl = (image: any): string => {
+  const fallback = '/assets/jt/default.jpg'
+
+  if (!image) return fallback
+
+  const url = typeof image === 'string' ? image : image?.url
+
+  if (!url || url.trim() === '') return fallback
+
+  return url
+}
 
   return (
     <section className="relative z-1 bg-white py-16 md:py-24 overflow-hidden">

@@ -65,6 +65,7 @@ export default async function Home() {
       
       {/* Render blocks from Payload */}
       {(page.blocks ?? []).map((block: any, i: number) => {
+        if (!block || !block.blockType) return null;
         const Component = blockMap[block.blockType];
         if (!Component) return null;
         return <Component key={i} {...block} />;

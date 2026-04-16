@@ -53,6 +53,11 @@ const nextConfig: NextConfig = {
         hostname: getHostname(process.env.NEXT_PUBLIC_SERVER_URL),
         pathname: '/api/media/file/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
     ],
   },
 

@@ -11,13 +11,15 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@payloadcms/db-mongodb": "3.81.0",
-    "@payloadcms/next": "3.81.0",
-    "@payloadcms/richtext-lexical": "3.81.0",
+    "@payloadcms/db-mongodb": "3.82.1",
+    "@payloadcms/next": "3.82.1",
+    "@payloadcms/plugin-cloud-storage": "^3.82.1",
+    "@payloadcms/richtext-lexical": "3.82.1",
+    "cloudinary": "^2.9.0",
     "flowbite": "^4.0.1",
     "flowbite-react": "^0.12.17",
     "next": "15.3.9",
-    "payload": "3.81.0",
+    "payload": "3.82.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-icons": "^5.6.0",
@@ -36,7 +38,12 @@
     "typescript": "^5"
   },
   "pnpm": {
-    "ignoredBuiltDependencies": ["sharp", "unrs-resolver"],
-    "onlyBuiltDependencies": ["esbuild"]
+    "ignoredBuiltDependencies": [
+      "sharp",
+      "unrs-resolver"
+    ],
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

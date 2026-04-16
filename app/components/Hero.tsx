@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"
 
 type HeroProps = {
   topLineText?: string
@@ -24,14 +25,19 @@ export default function Hero({
   buttonLink = "/diy-tips",
   backgroundImage,
 }: HeroProps) {
+  const bgImage =
+  backgroundImage?.url && backgroundImage.url.trim() !== ''
+    ? backgroundImage.url
+    : '/assets/jt/default.jpg'
   return (
     <div className="h-auto md:h-147.5 relative bg-red-400 mt-17.5 " id="hero">
-      <div className="image relative md:absolute w-full">
-        <img
-         src={backgroundImage?.url ?? "/assets/images/hero.jpg"}
-          alt={backgroundImage?.alt ?? "Hero background"}
-          className="h-auto md:h-147.5 object-cover w-full -z-10 relative"
-        />
+      <div className="image relative md:absolute w-full h-full min-h-[500px] md:h-[590px]">
+        <Image
+            src={bgImage}
+            alt={backgroundImage?.alt || "Hero background"}
+            fill
+            className={`-z-10 ${bgImage === '/assets/jt/default.jpg' ? 'object-contain object-left' : 'object-cover'}`}
+          />
       </div>
       <div className="container mx-auto h-auto md:h-60 w-full relative top-1/2 right-0 translate-y-0 md:-translate-y-1/2 mt-[-180px] md:mt-0">
         <div className="text-box relative md:absolute top-1/2 right-0 h-100 md:h-102 w-140 md:w-157 sm:w-full bg-white text-[#0052C6] translate-y-0 md:-translate-y-1/2 py-12 md:px-20 px-20 sm:px-4 rounded-2xl">

@@ -12,10 +12,10 @@ import 'swiper/css/navigation';
 type Location = {
   id?: string
   name: string
-  image: {
-    url: string
-    alt?: string
-  }
+  image?: {
+    url?: string | null
+    alt?: string | null
+  } | null
   storeInfoLink: string
 }
 
@@ -34,6 +34,7 @@ export default function ImageSlider({
   const nextRef = useRef<HTMLButtonElement>(null);
   const swiperRef = useRef<SwiperType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+
 
   // Reset Swiper when locations change
   useEffect(() => {
@@ -130,21 +131,28 @@ export default function ImageSlider({
                   : false
               }
             >
-              {locations.map((loc, index) => (
+              {locations.map((loc, index) => {
+                const imageUrl = loc.image?.url?.trim()
+                  ? loc.image.url
+                  : '/assets/jt/default.jpg';
+
+                return (
+                  
                 <SwiperSlide key={loc.id || index}>
                   <div className="relative rounded-xl overflow-hidden border border-gray-100 bg-white">
 
                     {/* IMAGE */}
                     <div className="relative w-full h-[350px] md:h-[380px] lg:h-[420px]">
                       <Image
-                        src={loc.image?.url ?? '/assets/jt/location-1.png'}
-                        alt={loc.image?.alt ?? loc.name}
+                        src={imageUrl && imageUrl.trim() !== '' ? imageUrl : '/assets/jt/location-1.png'}
+                        alt={loc.image?.alt || loc.name}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover"
                         loading="lazy"
                         quality={75}
                       />
+                      
                     </div>
 
                     {/* FOOTER */}
@@ -162,7 +170,7 @@ export default function ImageSlider({
 
                   </div>
                 </SwiperSlide>
-              ))}
+              )})}
             </Swiper>
           )}
         </div>
