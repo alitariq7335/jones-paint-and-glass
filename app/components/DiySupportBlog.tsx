@@ -1,17 +1,38 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 
-export default function DiySupportBlog() {
+type DiySupportBlogProps = {
+  tag?: string
+  heading?: string
+  description?: string
+  buttonText?: string
+  buttonLink?: string
+  image?: {
+    url: string
+    alt?: string
+  }
+}
+
+export default function DiySupportBlog({
+  tag = 'DIY SUPPORT BLOG',
+  heading = 'The Crash Course',
+  description = "For the real DIY-er, our blog is full of the most usable tips, tricks and don't-forgets related to paint, glass and door projects. Find the article you need or subscribe to stay up to date on all of the JP&G support.",
+  buttonText = 'Find an Article',
+  buttonLink = '#',
+  image,
+}: DiySupportBlogProps) {
+  const imgUrl = image?.url || '/assets/jt/media-paint.png'
+  const imgAlt = image?.alt || 'DIY Support Blog'
+
   return (
     <section className="container mx-auto w-full px-4 md:px-10 py-10 sm:py-12 md:py-16">
-
       <div className="bg-[#F8F9FC] rounded-2xl overflow-hidden flex flex-col lg:flex-row">
 
         {/* Left: Image */}
         <div className="relative w-full lg:w-[50%] shrink-0 h-[220px] sm:h-[260px] md:h-auto min-h-[280px]">
           <Image
-            src="/assets/jt/media-paint.png"
-            alt="Paint brush on paint can"
+            src={imgUrl}
+            alt={imgAlt}
             fill
             className="object-cover object-center"
             priority
@@ -26,7 +47,7 @@ export default function DiySupportBlog() {
             className="font-bold tracking-widest text-[#0052C6] mb-3"
             style={{ fontSize: "clamp(14px, 1vw, 16px)" }}
           >
-            DIY SUPPORT BLOG
+            {tag}
           </p>
 
           {/* Heading */}
@@ -34,7 +55,7 @@ export default function DiySupportBlog() {
             className="font-bold text-black mb-4 leading-tight"
             style={{ fontSize: "clamp(24px, 3.5vw, 40px)" }}
           >
-            The Crash Course
+            {heading}
           </h2>
 
           {/* Description */}
@@ -42,23 +63,22 @@ export default function DiySupportBlog() {
             className="md:w-[70%] w-full px-12 md:px-1 text-gray-600 leading-relaxed mb-3"
             style={{ fontSize: "clamp(14px, 1.2vw, 16px)" }}
           >
-            For the real DIY-er, our blog is full of the most usable tips,
-            tricks and don't-forgets related to paint, glass and door projects.
-            <br />
-            Find the article you need or subscribe to stay up to date on all
-            of the JP&amp;G support.
+            {description}
           </p>
 
           {/* CTA Button */}
           <div>
             <Link
-              href="#"
+              href={buttonLink || '#'}
               className="group inline-flex items-center gap-2 bg-[#0052C6] hover:bg-[#0041a8] text-white font-semibold rounded-lg px-5 py-2.5 transition-colors duration-200"
               style={{ fontSize: "clamp(14px, 1.1vw, 16px)" }}
             >
-              Find an Article
-
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+              {buttonText}
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
                 <path
                   d="M5 12h14M13 6l6 6-6 6"
                   stroke="currentColor"
@@ -72,7 +92,6 @@ export default function DiySupportBlog() {
 
         </div>
       </div>
-
     </section>
-  );
+  )
 }

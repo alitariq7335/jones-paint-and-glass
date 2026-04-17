@@ -2,9 +2,13 @@ import type { Block } from 'payload'
 
 export const Contractor: Block = {
   slug: 'contractor',
+  imageURL: '/assets/blocks-preview/contractor.png',
   labels: {
     singular: 'Contractor Block',
     plural: 'Contractor Blocks',
+  },
+  admin: {
+    group: 'Content Sections',
   },
   fields: [
     {
