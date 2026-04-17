@@ -1,6 +1,5 @@
 import { getPayload } from "payload";
 import config from "@/payload.config";
-import { notFound } from "next/navigation";
 import Hero from "@/app/components/Hero";
 import DiySlider from "@/app/components/Diyslider";
 import ProductServices from "@/app/components/Productservices";
@@ -9,6 +8,10 @@ import Contractor from "@/app/components/Contractor";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { getNavigation } from "@/lib/getNavigation";
+import DiySupportBlog from "@/app/components/DiySupportBlog";
+import JpgMedia from "@/app/components/JpgMedia";
+import DiySliderMedia from "@/app/components/DiySliderMedia";
+import Diyhero from "@/app/components/Diyhero";
 
 export const dynamic = 'force-dynamic';
 
@@ -18,6 +21,9 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   productServices: ProductServices,
   imageSlider: ImageSlider,
   contractor:Contractor,
+  diySupportBlog: DiySupportBlog,
+  jpgMedia: JpgMedia,
+  diySliderMedia:DiySliderMedia,
 };
 
 export default async function Home() {
@@ -54,6 +60,7 @@ export default async function Home() {
             </a>
           </div>
         </div>
+       
         <Footer />
       </>
     );
@@ -62,6 +69,8 @@ export default async function Home() {
   return (
     <>
       <Navbar navData={navData} />
+
+
       
       {/* Render blocks from Payload */}
       {(page.blocks ?? []).map((block: any, i: number) => {

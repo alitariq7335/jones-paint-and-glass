@@ -9,6 +9,10 @@ import Footer from "@/app/components/Footer";
 import ProductServices from "@/app/components/Productservices";
 import ImageSlider from "@/app/components/ImageSlider";
 import Contractor from "@/app/components/Contractor";
+import DiySupportBlog from "@/app/components/DiySupportBlog";
+import JpgMedia from "@/app/components/JpgMedia";
+import DiySliderMedia from "@/app/components/DiySliderMedia";
+
 
 export const dynamic = 'force-dynamic';
 
@@ -18,6 +22,9 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   productServices: ProductServices,
   imageSlider:ImageSlider,
   contractor:Contractor,
+  diySupportBlog: DiySupportBlog,
+  jpgMedia: JpgMedia,
+   diySliderMedia:DiySliderMedia,
 };
 
 export default async function DynamicPage({
@@ -51,6 +58,7 @@ export default async function DynamicPage({
         if (!Component) return null;
         return <Component key={i} {...block} />;
       })}
+   
       <Footer/>
     </>
   );

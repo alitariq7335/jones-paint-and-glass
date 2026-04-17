@@ -2,9 +2,13 @@ import type { Block } from 'payload'
 
 export const ProductServicesBlock: Block = {
   slug: 'productServices',
+  imageURL: '/assets/blocks-preview/services.png',
   labels: {
     singular: 'Product Services Block',
     plural: 'Product Services Blocks',
+  },
+  admin: {
+    group: 'Content Sections',
   },
   fields: [
     {
