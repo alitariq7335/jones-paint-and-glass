@@ -9,7 +9,6 @@ import Contractor from "@/app/components/Contractor";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { getNavigation } from "@/lib/getNavigation";
-import VideoSlider from "../components/VideoSlider";
 
 export const dynamic = 'force-dynamic';
 
@@ -75,8 +74,6 @@ export default async function Home() {
    
       
       <Footer />
-
-      <VideoSlider />
     </>
   );
 }
