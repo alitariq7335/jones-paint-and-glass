@@ -9,7 +9,7 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { getNavigation } from "@/lib/getNavigation";
 import DiySupportBlog from "@/app/components/DiySupportBlog";
-import JpgMedia from "@/app/components/JpgMedia";
+// import JpgMedia from "@/app/components/JpgMedia";
 import DiySliderMedia from "@/app/components/DiySliderMedia";
 
 export const dynamic = 'force-dynamic';
@@ -21,7 +21,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   imageSlider: ImageSlider,
   contractor:Contractor,
   diySupportBlog: DiySupportBlog,
-  jpgMedia: JpgMedia,
+  // jpgMedia: JpgMedia,
   diySliderMedia:DiySliderMedia,
 };
 
