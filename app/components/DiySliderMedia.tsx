@@ -50,21 +50,22 @@ export default function DiySliderMedia({
   return (
     <section className="relative w-full bg-white py-10 sm:py-12 md:py-14">
       {/* Background decoration */}
-            <div className="pointer-events-none inset-0">
-                <div className="absolute -top-70 md:-top-80 right-0 w-100"
-                    style={{
-                        backgroundImage: 'url(/assets/jt/elements/paint-4.png)',
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'top right',
-                        height: '100%',
-                        transform: 'rotate(0deg)',
-                        transformOrigin: 'top right',
-                    }} />
-            </div>
+      <div className="pointer-events-none inset-0">
+        <div
+          className="absolute -top-70 md:-top-80 right-0 w-100"
+          style={{
+            backgroundImage: 'url(/assets/jt/elements/paint-4.png)',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'top right',
+            height: '100%',
+            transform: 'rotate(0deg)',
+            transformOrigin: 'top right',
+          }}
+        />
+      </div>
 
       <div className="relative z-10">
-
         {/* Header row */}
         <div className="container mx-auto flex flex-col md:flex-row md:items-end justify-between text-center md:text-start gap-6 mb-15 px-4 sm:px-6 md:px-12">
 
@@ -85,7 +86,7 @@ export default function DiySliderMedia({
                     className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 cursor-pointer ${
                       activeTab === "instagram"
                         ? "bg-[#0052C6] text-white"
-                        : "text-white "
+                        : "bg-transparent text-black hover:bg-gray-100"
                     }`}
                   >
                     <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -98,10 +99,10 @@ export default function DiySliderMedia({
                 {showTiktok && (
                   <button
                     onClick={() => setActiveTab("tiktok")}
-                    className={`flex items-center gap-2 px-4 py-2.5 rounded-md border text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                    className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 cursor-pointer ${
                       activeTab === "tiktok"
                         ? "bg-[#0052C6] text-white"
-                        : "bg-[#0052C6] text-white"
+                        : "bg-transparent text-black hover:bg-gray-100"
                     }`}
                   >
                     <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">

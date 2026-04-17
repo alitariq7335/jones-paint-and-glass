@@ -2,9 +2,13 @@ import type { Block } from 'payload'
 
 export const DiySliderBlock: Block = {
   slug: 'diySlider',
+  imageURL: '/assets/blocks-preview/diyslider.png',
   labels: {
-    singular: 'DIY Slider',
-    plural: 'DIY Sliders',
+    singular: 'DIY Slider Dark',
+    plural: 'DIY Sliders Dark',
+  },
+  admin: {
+    group: 'Sliders',
   },
   fields: [
     {

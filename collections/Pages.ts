@@ -4,6 +4,9 @@ import { HeroBlock } from '../blocks/Hero.block'
 import { ProductServicesBlock } from '@/blocks/ProductService.block'
 import { ImageSliderBlock } from '@/blocks/ImageSlider.block'
 import { Contractor } from '@/blocks/Contractor.block'
+import { DiySupportBlogBlock } from '@/blocks/DiySupportBlog.block'
+import { JpgMedia } from '@/blocks/JpgMedia.block'
+import { DiySliderMediaBlock } from '@/blocks/DiySliderMedia.block'
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -35,7 +38,10 @@ const Pages: CollectionConfig = {
         ProductServicesBlock,
         ImageSliderBlock,
         DiySliderBlock,
-        Contractor
+        Contractor,
+        DiySupportBlogBlock,
+        JpgMedia,
+        DiySliderMediaBlock,
       ],
     },
   ],
