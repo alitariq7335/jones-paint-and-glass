@@ -12,6 +12,8 @@ import Contractor from "@/app/components/Contractor";
 import DiySupportBlog from "@/app/components/DiySupportBlog";
 import DiySliderMedia from "@/app/components/DiySliderMedia";
 import JpgMedia from "@/app/components/Jpgmedia";
+import VideoSlider from "@/app/components/VideoSlider";
+import Diyhero from "@/app/components/Diyhero";
 
 
 export const dynamic = 'force-dynamic';
@@ -23,8 +25,11 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   imageSlider:ImageSlider,
   contractor:Contractor,
   diySupportBlog: DiySupportBlog,
-  JpgMedia:JpgMedia,
+  jpgMedia:JpgMedia,
    diySliderMedia:DiySliderMedia,
+  videoSlider: VideoSlider,
+  diyHero: Diyhero,
+
 };
 
 export default async function DynamicPage({
@@ -53,6 +58,7 @@ export default async function DynamicPage({
   return (
     <>
     <Navbar navData={navData} />
+
       {(page.blocks ?? []).map((block: any, i: number) => {
         const Component = blockMap[block.blockType];
         if (!Component) return null;
