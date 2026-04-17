@@ -58,14 +58,14 @@ export default function JpgMedia({
             {/* Footer */}
             <div className="px-5 py-4">
               <p
-                className="text-gray-500 mb-1"
-                style={{ fontSize: "clamp(12px, 1.2vw, 14px)" }}
+                className="text-black font-bold mb-1"
+                style={{ fontSize: "clamp(14px, 1.2vw, 20px)" }}
               >
                 {item.helpText || 'Help Me With'}
               </p>
               <p
-                className="font-semibold text-[#0052C6]"
-                style={{ fontSize: "clamp(16px, 1.8vw, 22px)" }}
+                className="font-bold text-[#0052C6]"
+                style={{ fontSize: "clamp(18px, 1.8vw, 32px)" }}
               >
                 {item.title}
               </p>

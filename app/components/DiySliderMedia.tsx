@@ -86,7 +86,7 @@ export default function DiySliderMedia({
                     className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 cursor-pointer ${
                       activeTab === "instagram"
                         ? "bg-[#0052C6] text-white"
-                        : "bg-transparent text-black hover:bg-gray-100"
+                        : "bg-[#0052C6] text-white"
                     }`}
                   >
                     <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -102,7 +102,7 @@ export default function DiySliderMedia({
                     className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 cursor-pointer ${
                       activeTab === "tiktok"
                         ? "bg-[#0052C6] text-white"
-                        : "bg-transparent text-black hover:bg-gray-100"
+                        : "bg-[#0052C6] text-white"
                     }`}
                   >
                     <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">

@@ -26,7 +26,7 @@ export default function DiySupportBlog({
 
   return (
     <section className="container mx-auto w-full px-4 md:px-10 py-10 sm:py-12 md:py-16">
-      <div className="bg-[#F8F9FC] rounded-2xl overflow-hidden flex flex-col lg:flex-row">
+      <div className="bg-[#F8F9FC] rounded-2xl overflow-hidden flex flex-col lg:flex-row px-8 xl:px-12 lg:px-10 py-8 xl:py-12 lg:py-10">
 
         {/* Left: Image */}
         <div className="relative w-full lg:w-[50%] shrink-0 h-[220px] sm:h-[260px] md:h-auto min-h-[280px]">
@@ -34,13 +34,13 @@ export default function DiySupportBlog({
             src={imgUrl}
             alt={imgAlt}
             fill
-            className="object-cover object-center"
+            className="object-cover object-center rounded-[15px]"
             priority
           />
         </div>
 
         {/* Right: Content */}
-        <div className="flex flex-col justify-center text-center md:text-start px-6 md:px-10 py-8 md:py-10 gap-1 relative z-10">
+        <div className="flex flex-col justify-start text-center md:text-start px-1 lg:px-10 py-8 lg:pb-10 lg:pt-5 gap-1 relative z-10">
 
           {/* Tag */}
           <p
@@ -70,7 +70,7 @@ export default function DiySupportBlog({
           <div>
             <Link
               href={buttonLink || '#'}
-              className="group inline-flex items-center gap-2 bg-[#0052C6] hover:bg-[#0041a8] text-white font-semibold rounded-lg px-5 py-2.5 transition-colors duration-200"
+              className="group inline-flex items-center gap-2 bg-[#0052C6] hover:bg-[#0041a8] text-white font-semibold rounded-[8px] px-5 py-3 transition-colors duration-200"
               style={{ fontSize: "clamp(14px, 1.1vw, 16px)" }}
             >
               {buttonText}
