@@ -10,8 +10,8 @@ import ProductServices from "@/app/components/Productservices";
 import ImageSlider from "@/app/components/ImageSlider";
 import Contractor from "@/app/components/Contractor";
 import DiySupportBlog from "@/app/components/DiySupportBlog";
-// import JpgMedia from "@/app/components/JpgMedia";
 import DiySliderMedia from "@/app/components/DiySliderMedia";
+import JpgMedia from "@/app/components/Jpgmedia";
 
 
 export const dynamic = 'force-dynamic';
@@ -23,7 +23,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   imageSlider:ImageSlider,
   contractor:Contractor,
   diySupportBlog: DiySupportBlog,
-  // jpgMedia: JpgMedia,
+  JpgMedia:JpgMedia,
    diySliderMedia:DiySliderMedia,
 };
 
