@@ -1,6 +1,6 @@
 import type { Block } from 'payload'
 
-export const JpgMediaBlock: Block = {
+export const JpgMedia: Block = {
   slug: 'jpgMedia',
   imageURL: '/assets/blocks-preview/media.png',
   labels: {

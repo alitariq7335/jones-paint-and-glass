@@ -11,7 +11,6 @@ import { getNavigation } from "@/lib/getNavigation";
 import DiySupportBlog from "@/app/components/DiySupportBlog";
 import JpgMedia from "@/app/components/JpgMedia";
 import DiySliderMedia from "@/app/components/DiySliderMedia";
-import Diyhero from "@/app/components/Diyhero";
 
 export const dynamic = 'force-dynamic';
 

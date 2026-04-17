@@ -5,7 +5,7 @@ import { ProductServicesBlock } from '@/blocks/ProductService.block'
 import { ImageSliderBlock } from '@/blocks/ImageSlider.block'
 import { Contractor } from '@/blocks/Contractor.block'
 import { DiySupportBlogBlock } from '@/blocks/DiySupportBlog.block'
-import { JpgMediaBlock } from '@/blocks/JpgMedia.block'
+import { JpgMedia } from '@/blocks/JpgMedia.block'
 import { DiySliderMediaBlock } from '@/blocks/DiySliderMedia.block'
 
 const Pages: CollectionConfig = {
@@ -40,7 +40,7 @@ const Pages: CollectionConfig = {
         DiySliderBlock,
         Contractor,
         DiySupportBlogBlock,
-        JpgMediaBlock,
+        JpgMedia,
         DiySliderMediaBlock,
       ],
     },
