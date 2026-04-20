@@ -8,7 +8,7 @@ export const DiyHeroBlock: Block = {
     plural: 'DIY Hero Blocks',
   },
   admin: {
-    group: 'Heroes',
+    group: 'Hero Section',
   },
   fields: [
     // ── Card 1 (Blue) ────────────────────────────────────────────

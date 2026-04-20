@@ -7,8 +7,9 @@ export const HeroBlock: Block = {
     singular: 'Hero Block',
     plural: 'Hero Blocks',
   },
-  admin: {
-    group: 'Content Sections',
+  
+   admin: {
+    group: 'Hero Section',
   },
   fields: [
     {
