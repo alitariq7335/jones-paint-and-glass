@@ -8,6 +8,7 @@ import Navigation from './collections/Navigation'
 import Pages from './collections/Pages'
 import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage'
 import { cloudinaryAdapter } from './lib/cloudinaryAdapter'
+import Users from './collections/Users'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -40,25 +41,7 @@ export default buildConfig({
   },
 
   collections: [
-    {
-      slug: 'users',
-      auth: true,
-      admin: {
-        useAsTitle: 'email',
-      },
-      fields: [
-        {
-          name: 'name',
-          type: 'text',
-        },
-        {
-          name: 'role',
-          type: 'select',
-          options: ['admin', 'user'],
-          defaultValue: 'user',
-        },
-      ],
-    },
+    Users,
     Media,
     Pages,       // ✅ Navigation removed from here
   ],

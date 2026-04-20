@@ -8,7 +8,7 @@ export const JpgMedia: Block = {
     plural: 'JP&G Media Blocks',
   },
   admin: {
-    group: 'Media Sections',
+    group: 'Content Sections',
   },
   fields: [
     {
