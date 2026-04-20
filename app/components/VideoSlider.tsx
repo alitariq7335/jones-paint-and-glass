@@ -73,10 +73,10 @@ export default function VideoSlider({
   if (!videos.length) return null;
 
   return (
-    <div className="py-16">
+    <div className="py-16 mt-16">
       {/* Header */}
-      <div className="container mx-auto flex items-center justify-between pb-10">
-        <h2 className="text-[48px] font-[Avenir] font-bold">{heading}</h2>
+      <div className="container mx-auto flex items-center justify-between pb-10 px-4">
+        <h2 className="text-[48px] font-[Avenir] font-bold pl-4">{heading}</h2>
         {buttonLabel && (
           <a
             href={buttonLink}
