@@ -28,7 +28,7 @@ const FALLBACK_NAV_ITEMS: NavItem[] = [
     label: "Media",
     items: [
       { label: "Blog", href: "/media/news" },
-      { label: "Videos", href: "/media/gallery" },
+      { label: "Videos", href: "media/videos" },
     ],
   },
   {
