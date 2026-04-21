@@ -6,7 +6,6 @@ import { ImageSliderBlock } from '@/blocks/ImageSlider.block'
 import { Contractor } from '@/blocks/Contractor.block'
 import { DiySupportBlogBlock } from '@/blocks/DiySupportBlog.block'
 import { JpgMedia } from '@/blocks/JpgMedia.block'
-import { DiySliderMediaBlock } from '@/blocks/DiySliderMedia.block'
 import { DiyHeroBlock } from '@/blocks/Diyhero.block'
 import { VideoSliderBlock } from '@/blocks/Videoslider.block'
 
@@ -43,7 +42,6 @@ const Pages: CollectionConfig = {
         Contractor,
         DiySupportBlogBlock,
         JpgMedia,
-        DiySliderMediaBlock,
         DiyHeroBlock,
         VideoSliderBlock,
         

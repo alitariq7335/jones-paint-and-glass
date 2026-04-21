@@ -4,13 +4,22 @@ export const DiySliderBlock: Block = {
   slug: 'diySlider',
   imageURL: '/assets/blocks-preview/diyslider.png',
   labels: {
-    singular: 'DIY Slider Dark',
-    plural: 'DIY Sliders Dark',
+    singular: 'DIY Slider',
+    plural: 'DIY Sliders',
   },
   admin: {
     group: 'Sliders',
   },
   fields: [
+    {
+      name: 'darkBackground',
+      type: 'checkbox',
+      defaultValue: true,
+      label: 'Dark Background',
+      admin: {
+        description: 'Toggle between dark (blue) and light (white) background',
+      },
+    },
     {
       name: 'heading',
       type: 'text',
@@ -36,6 +45,11 @@ export const DiySliderBlock: Block = {
       label: 'Show TikTok Tab',
     },
     {
+      name: 'Background Vector Image',
+      type: 'upload',
+      relationTo: 'media' as any,
+    },
+    {
       name: 'slides',
       type: 'array',
       label: 'Slides',
@@ -45,7 +59,7 @@ export const DiySliderBlock: Block = {
           name: 'name',
           type: 'text',
           required: true,
-          label: 'Location Name',
+          label: 'Slide Name',
         },
         {
           name: 'image',
