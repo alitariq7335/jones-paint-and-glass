@@ -22,71 +22,7 @@ type NavData = {
 } | null;
 
 // ─── Fallback static data ─────────────────────
-const FALLBACK_NAV_ITEMS: NavItem[] = [
-  {
-    type: "dropdown",
-    label: "Media",
-    items: [
-      { label: "Blog", href: "/media/news" },
-      { label: "Videos", href: "media/videos" },
-    ],
-  },
-  {
-    type: "dropdown",
-    label: "Locations",
-    items: [
-      { label: "American Fork", href: "/locations/american-fork" },
-      { label: "Cedar City", href: "/locations/cedar-city" },
-      { label: "Payson", href: "/locations/payson" },
-      { label: "Provo - Glass", href: "/locations/Provo-Glass" },
-      { label: "Provo - Paint", href: "/locations/provo-paint" },
-      { label: "Roosevelt", href: "/locations/roosevelt" },
-      { label: "St. George", href: "/locations/st-george" },
-      { label: "Vernal", href: "/locations/Vernal" },
-    ],
-  },
-  {
-    type: "dropdown",
-    label: "Paint",
-    items: [
-      { label: "Exterior", href: "/paint/exterior" },
-      { label: "Interior", href: "/paint/interior" },
-      { label: "Auto Paint", href: "/paint/auto-paint" },
-      { label: "Garage Floor Coatings", href: "/paint/garage-floor-coatings" },
-      { label: "Specialty Finishes", href: "/paint/specialty-finishes" },
-    ],
-  },
-  {
-    type: "dropdown",
-    label: "Windows & Glass",
-    items: [
-      { label: "Windows", href: "/windows-&-glass/windows" },
-      { label: "Shower", href: "/windows-&-glass/shower" },
-      { label: "Mirrors", href: "/windows-&-glass/mirrors" },
-      { label: "Auto Glass", href: "/windows-&-glass/auto-glass" },
-      { label: "Custom/Decorative", href: "/windows-&-glass/Custom-Decorative" },
-      { label: "Commercial/Business", href: "/windows-&-glass/commercial-business" },
-    ],
-  },
-  {
-    type: "dropdown",
-    label: "Doors",
-    items: [
-      { label: "Residential", href: "/doors/residential" },
-      { label: "Commercial", href: "/doors/commercial" },
-    ],
-  },
-  { type: "link", label: "Garage Doors", href: "/garage-doors" },
-  {
-    type: "dropdown",
-    label: "About",
-    items: [
-      { label: "FAQs", href: "/about/faqs" },
-      { label: "Contact", href: "/about/contact" },
-      { label: "Careers", href: " " },
-    ],
-  },
-];
+const FALLBACK_NAV_ITEMS: NavItem[] = [];
 
 // ─── Hook ─────────────────────────────────────
 function useDropdown() {
