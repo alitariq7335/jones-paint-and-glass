@@ -12,7 +12,7 @@ type NavSubItem = {
 
 type NavItem =
   | { type: "link"; label: string; href: string }
-  | { type: "dropdown"; label: string; items: NavSubItem[] };
+  | { type: "dropdown"; label: string; href?: string; items: NavSubItem[] };
 
 type NavData = {
   logo?: { url: string; alt?: string } | null;
@@ -28,25 +28,30 @@ const FALLBACK_NAV_ITEMS: NavItem[] = [];
 function useDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const close = useCallback(() => setOpen(false), []);
-  const toggle = useCallback(() => setOpen((prev) => !prev), []);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openMenu = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpen(true);
+  }, []);
+
+  const close = useCallback(() => {
+    closeTimer.current = setTimeout(() => setOpen(false), 150);
+  }, []);
+
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  }, []);
 
   useEffect(() => {
-    const onMouse = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) close();
-    };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
+      if (e.key === "Escape") setOpen(false);
     };
-    document.addEventListener("mousedown", onMouse);
     document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onMouse);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [close]);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
 
-  return { open, toggle, close, ref };
+  return { open, openMenu, close, cancelClose, ref };
 }
 
 // ─── NavLink ──────────────────────────────────
@@ -65,35 +70,61 @@ function NavLink({ label, href, onClick, className = "" }: {
 }
 
 // ─── DropdownMenu ─────────────────────────────
-function DropdownMenu({ label, items }: { label: string; items: NavSubItem[] }) {
-  const { open, toggle, close, ref } = useDropdown();
+function DropdownMenu({ label, items, href }: {
+  label: string;
+  items: NavSubItem[];
+  href?: string;
+}) {
+  const { open, openMenu, close, cancelClose, ref } = useDropdown();
 
   return (
-    <div ref={ref} className="relative">
-      <button
-        onClick={toggle}
-        aria-expanded={open}
-        aria-haspopup="true"
-        className="flex items-center gap-1 py-2 px-3 font-bold text-heading xl:text-[16px] lg:text-[14px] hover:text-fg-brand transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
-      >
-        {label}
-        <svg
-          className={`w-4 h-4 mt-0.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
-        </svg>
-      </button>
+    <div
+      ref={ref}
+      className="relative"
+      onMouseEnter={openMenu}
+      onMouseLeave={close}
+    >
+      <div className="flex items-center">
 
+        {/* ✅ Label is a link if href provided */}
+        {href ? (
+          <Link
+            href={href}
+            className="py-2 pl-3 font-bold text-heading xl:text-[16px] lg:text-[14px] hover:text-fg-brand transition-colors duration-150"
+          >
+            {label}
+          </Link>
+        ) : (
+          <span className="py-2 pl-3 font-bold text-heading xl:text-[16px] lg:text-[14px] cursor-default">
+            {label}
+          </span>
+        )}
+
+        {/* ✅ Arrow is just visual - no click needed */}
+        <span className="p-2 text-heading">
+          <svg
+            className={`w-4 h-4 mt-0.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
+          </svg>
+        </span>
+      </div>
+
+      {/* ✅ Dropdown stays open when hovering over it */}
       {open && (
         <ul
-          role="menu" aria-label={label}
+          role="menu"
+          aria-label={label}
+          onMouseEnter={cancelClose}
+          onMouseLeave={close}
           className="absolute top-full left-0 mt-2 z-30 min-w-[220px] bg-neutral-primary-medium border border-default-medium rounded-base shadow-xl p-1.5"
         >
           {items.map((item) => (
             <li key={item.href} role="none">
               <Link
-                href={item.href} role="menuitem" onClick={close}
+                href={item.href}
+                role="menuitem"
                 className="flex flex-col w-full px-3 py-2.5 rounded hover:bg-neutral-tertiary-medium group transition-colors duration-150"
               >
                 <span className="text-sm font-medium text-heading group-hover:text-fg-brand transition-colors">
@@ -129,19 +160,37 @@ function MobileMenu({ items, ctaText, ctaLink, onClose }: {
           />
         ) : (
           <div key={item.label}>
-            <button
-              onClick={() => toggleAccordion(item.label)}
-              aria-expanded={openLabel === item.label}
-              className="flex items-center justify-between w-full py-2.5 px-3 text-sm font-medium text-heading rounded hover:bg-neutral-secondary-soft transition-colors"
-            >
-              {item.label}
-              <svg
-                className={`w-4 h-4 transition-transform duration-200 ${openLabel === item.label ? "rotate-180" : ""}`}
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true"
+            <div className="flex items-center justify-between w-full">
+
+              {/* ✅ Mobile label is a link if href provided */}
+              {item.href ? (
+                <Link
+                  href={item.href}
+                  onClick={onClose}
+                  className="py-2.5 px-3 text-sm font-medium text-heading hover:text-fg-brand transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <span className="py-2.5 px-3 text-sm font-medium text-heading">
+                  {item.label}
+                </span>
+              )}
+
+              {/* ✅ Arrow toggles accordion on mobile */}
+              <button
+                onClick={() => toggleAccordion(item.label)}
+                aria-expanded={openLabel === item.label}
+                className="p-2 text-heading rounded hover:bg-neutral-secondary-soft transition-colors"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
-              </svg>
-            </button>
+                <svg
+                  className={`w-4 h-4 transition-transform duration-200 ${openLabel === item.label ? "rotate-180" : ""}`}
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
 
             {openLabel === item.label && (
               <div className="ml-3 mt-0.5 mb-1 border-l-2 border-brand/30 pl-3 space-y-0.5">
@@ -195,10 +244,8 @@ export default function Navbar({ navData }: { navData: NavData }) {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center gap-3 font-medium" role="menubar">
-          {/* Logo */}
           <Link href="/" aria-label="Go to homepage">
             <img src={logoUrl} className="h-24 -mb-12 mr-0 xl:mr-10 lg:mr-3" alt={logoAlt} />
-
           </Link>
 
           {navItems.map((item) => (
@@ -206,23 +253,25 @@ export default function Navbar({ navData }: { navData: NavData }) {
               {item.type === "link" ? (
                 <NavLink label={item.label} href={item.href} />
               ) : (
-                <DropdownMenu label={item.label} items={item.items} />
+                <DropdownMenu
+                  label={item.label}
+                  items={item.items}
+                  href={(item as any).href}
+                />
               )}
             </li>
           ))}
         </ul>
 
-          
-        {/* Logo */}
+        {/* Mobile Logo */}
         <Link href="/" aria-label="Go to homepage">
           <img src={logoUrl} className="flex lg:hidden h-24 -mb-12 mr-12" alt={logoAlt} />
-
         </Link>
-        
+
         {/* CTA + Hamburger */}
         <div className="flex items-center gap-3">
 
-          {/* Search Icon Button */}
+          {/* Search Button */}
           <button
             aria-label="Search"
             className="hidden lg:flex gap-2 items-center justify-center w-10 h-10 rounded-full hover:bg-neutral-secondary-soft cursor-pointer"
@@ -241,20 +290,18 @@ export default function Navbar({ navData }: { navData: NavData }) {
               <path d="M21 21l-4.35-4.35" />
             </svg>
           </button>
+
+          {/* CTA Button */}
           <Link href={ctaLink}>
             <button className="hidden lg:inline-flex items-center gap-2 text-white bg-[#0052C6] hover:bg-brand-strong font-medium rounded-[8px] text-[16px] xl:px-5 lg:px-4 xl:py-3 lg:py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand cursor-pointer">
               {ctaText}
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M5 12h14M13 6l6 6-6 6"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </Link>
+
+          {/* Hamburger */}
           <button
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}

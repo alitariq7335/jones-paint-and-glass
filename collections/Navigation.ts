@@ -35,13 +35,16 @@ const Navigation: GlobalConfig = {
         {
           name: 'label',
           type: 'text',
+          label: 'Label / Title',
           required: true,
         },
         {
+          // ✅ shown for BOTH link and dropdown
           name: 'href',
           type: 'text',
+          label: 'Page Link (Slug)',
           admin: {
-            condition: (_, siblingData) => siblingData?.type === 'link',
+            description: 'e.g. /media — this makes the label itself clickable',
           },
         },
         {
@@ -49,22 +52,26 @@ const Navigation: GlobalConfig = {
           type: 'array',
           label: 'Dropdown Items',
           admin: {
+            description: 'Add sub-links that appear in the dropdown menu',
             condition: (_, siblingData) => siblingData?.type === 'dropdown',
           },
           fields: [
             {
               name: 'label',
               type: 'text',
+              label: 'Label',
               required: true,
             },
             {
               name: 'href',
               type: 'text',
+              label: 'Link (Slug)',
               required: true,
             },
             {
               name: 'description',
               type: 'text',
+              label: 'Description (optional)',
             },
           ],
         },
