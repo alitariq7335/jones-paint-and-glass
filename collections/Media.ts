@@ -4,6 +4,7 @@ const Media: CollectionConfig = {
   slug: 'media',
   admin: {
     useAsTitle: 'alt',
+    defaultColumns: ['filename', 'alt', 'url', 'cloudinaryPublicId', 'updatedAt'],
   },
   access: {
     read: () => true,
@@ -12,8 +13,17 @@ const Media: CollectionConfig = {
     delete: ({ req }) => !!req.user,
   },
   upload: {
-    disableLocalStorage: true, // ✅ Cloudinary handles storage
-    mimeTypes: ['image/*', 'video/*', 'application/pdf'], // ✅ allowed file types
+    disableLocalStorage: true,
+    mimeTypes: ['image/*', 'video/*', 'application/pdf'],
+    // ✅ Tell Payload where to find the image URL for thumbnails
+    adminThumbnail: ({ doc }) => {
+      const d = doc as any
+      if (d.url) return d.url
+      if (d.cloudinaryPublicId) {
+        return `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/${d.cloudinaryPublicId}`
+      }
+      return null
+    },
   },
   fields: [
     {
@@ -24,7 +34,6 @@ const Media: CollectionConfig = {
         description: 'Describe the image for accessibility and SEO',
       },
     },
-    // ✅ Store Cloudinary URL directly
     {
       name: 'url',
       type: 'text',
@@ -33,7 +42,6 @@ const Media: CollectionConfig = {
         description: 'Cloudinary URL (auto-filled on upload)',
       },
     },
-    // ✅ Store Cloudinary public ID for deletion
     {
       name: 'cloudinaryPublicId',
       type: 'text',
