@@ -20,6 +20,12 @@ const Pages: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],
   },
+  access: {
+    read: () => true,           // ✅ anyone can read
+    create: ({ req }) => !!req.user, // ✅ logged in users can create
+    update: ({ req }) => !!req.user, // ✅ logged in users can update
+    delete: ({ req }) => !!req.user, // ✅ logged in users can delete
+  },
   fields: [
     {
       name: 'title',

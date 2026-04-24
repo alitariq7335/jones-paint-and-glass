@@ -7,6 +7,10 @@ const Users: CollectionConfig = {
     useAsTitle: 'email',
     group: 'Admin', // ✅ shows in sidebar under Admin group
   },
+  access: {
+    read: () => true,
+    update: ({ req }) => !!req.user, // ✅ any logged in user can update
+  },
   fields: [
     {
       name: 'name',
