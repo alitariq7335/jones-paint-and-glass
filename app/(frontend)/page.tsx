@@ -17,6 +17,8 @@ import Contacthero from "@/app/components/Contacthero"
 import Inquireform from "@/app/components/Inquireform";
 import About from "@/app/components/About";
 import Features from "@/app/components/Features";
+import Aboutlocation from "@/app/components/Aboutlocation"
+import QuickLinks from "@/app/components/QuickLinks"
 
 
 export const dynamic = 'force-dynamic';
@@ -36,6 +38,8 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   inquireForm: Inquireform,
   about: About,
   features: Features,
+  aboutLocation: Aboutlocation,
+  quickLinks: QuickLinks,
 };
 
 export default async function Home() {

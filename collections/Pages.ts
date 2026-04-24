@@ -13,6 +13,8 @@ import { ContactHeroBlock } from '@/blocks/Contacthero.block'
 import { InquireFormBlock } from '@/blocks/InquireForm.block'
 import { AboutBlock } from '@/blocks/About.block'
 import { FeaturesBlock } from '@/blocks/FeaturesBlock'
+import { AboutLocationBlock } from '@/blocks/AboutLocationBlock'
+import { QuickLinksBlock } from '@/blocks/QuickLinksBlock'
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -60,6 +62,8 @@ const Pages: CollectionConfig = {
         InquireFormBlock,
         AboutBlock,
         FeaturesBlock,
+        AboutLocationBlock,
+        QuickLinksBlock,
       ],
     },
   ],
