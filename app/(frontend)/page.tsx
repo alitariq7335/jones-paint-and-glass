@@ -80,8 +80,6 @@ export default async function Home() {
         if (!Component) return null;
         return <Component key={i} {...block} />;
       })}
-
-   
       <Footer />
     </>
   );

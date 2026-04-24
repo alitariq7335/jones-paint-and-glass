@@ -48,12 +48,12 @@
   }
 } */
 
-.template-minimal{
+.template-minimal {
   background-color: black;
   color: white;
 }
 
-.drawer__content{
+.drawer__content {
   color: white !important;
 }
 
@@ -69,7 +69,7 @@ body {
   box-sizing: border-box;
 }
 
-#hero .container .text-box{
+#hero .container .text-box {
   box-shadow: 0px 4px 19.6px 0px #0000001A;
 
 }
@@ -166,50 +166,52 @@ body {
 
 @media only screen and (max-width: 750px) {
 
-  .text-box{
+  .text-box {
     padding: 2rem !important;
     width: 100% !important;
-    height: 100% ;
+    height: 100%;
     margin-top: 160px;
   }
-  .text-box .jp{
+
+  .text-box .jp {
     flex-direction: column;
   }
-  
-  .text-box .blue-box{
+
+  .text-box .blue-box {
     max-width: 300px;
     margin-left: 0;
     /* padding: 0.5rem 0.7rem; */
-    
+
   }
 
-  .text-box .blue-box .text-xl{
+  .text-box .blue-box .text-xl {
     /* margin-left: 0; */
   }
 }
 
 @media only screen and (max-width: 400px) {
 
-  .text-box .blue-box{
+  .text-box .blue-box {
     max-width: auto;
     margin-left: 0;
     /* padding: 0.5rem 0.7rem; */
-    
+
   }
 
-  .text-box{
+  .text-box {
     text-align: center;
   }
 
-  .text-box .blue-box h3{
+  .text-box .blue-box h3 {
     margin-left: 0;
   }
 
-  .text-box .jp .text-xl{
+  .text-box .jp .text-xl {
     font-size: 18px;
     text-align: center;
   }
-  .text-box .jp .text-7xl{
+
+  .text-box .jp .text-7xl {
     font-size: 4rem;
     text-align: center;
   }
@@ -247,3 +249,69 @@ body {
 }
 
 /* =================== END ==================== */
+
+
+/* ====================== About question page ============ */
+
+
+@media (max-width: 1280px) {
+  #color-bg {
+    top: 15px;
+  }
+
+}
+
+@media (max-width: 1024px) {
+  #color-bg {
+    overflow: hidden;
+  }
+
+}
+
+/* ===================== END ==================== */
+
+
+
+
+/* ============= Accordian page ============== */
+
+@media (max-width: 1550px) {
+  #accordian-element {
+    top: 50px;
+    height: 600px !important;
+  }
+
+}
+
+@media (max-width: 1024px) {
+  #accordian-element {
+    top: 80px;
+    height: 450px !important;
+  }
+  
+  #faqs-tip-element{
+    top: 180px;
+    height: 300px !important;
+  }
+
+}
+@media (max-width: 786px) {
+    #faqs-tip-element{
+    top: 140px;
+  }
+}
+
+@media (max-width: 650px) {
+  #accordian-element {
+    top: 150px;
+    height: 300px !important;
+  }
+
+}
+
+@media (max-width: 450px) {
+    #faqs-tip-element{
+    top: 200px;
+        height: 250px !important;
+  }
+}
