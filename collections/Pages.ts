@@ -15,6 +15,7 @@ import { AboutBlock } from '@/blocks/About.block'
 import { FeaturesBlock } from '@/blocks/FeaturesBlock'
 import { AboutLocationBlock } from '@/blocks/AboutLocationBlock'
 import { QuickLinksBlock } from '@/blocks/QuickLinksBlock'
+import { FaqsBlock } from '@/blocks/Faqsblock.block'
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -64,6 +65,7 @@ const Pages: CollectionConfig = {
         FeaturesBlock,
         AboutLocationBlock,
         QuickLinksBlock,
+        FaqsBlock,
       ],
     },
   ],

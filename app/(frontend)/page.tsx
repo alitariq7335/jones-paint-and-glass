@@ -19,7 +19,7 @@ import About from "@/app/components/About";
 import Features from "@/app/components/Features";
 import Aboutlocation from "@/app/components/Aboutlocation"
 import QuickLinks from "@/app/components/QuickLinks"
-
+import Faqs from '@/app/components/Faqs'
 
 export const dynamic = 'force-dynamic';
 
@@ -40,6 +40,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   features: Features,
   aboutLocation: Aboutlocation,
   quickLinks: QuickLinks,
+  faqs: Faqs,
 };
 
 export default async function Home() {
