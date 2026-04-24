@@ -12,10 +12,6 @@ import DiySupportBlog from "@/app/components/DiySupportBlog";
 import JpgMedia from "@/app/components/Jpgmedia";
 import VideoSlider from "@/app/components/VideoSlider";
 import Diyhero from "@/app/components/Diyhero";
-import Paintabouthero from "../components/Paintabouthero";
-import Ordersection from "../components/Ordersection";
-import Aboutlocation from "../components/Aboutlocation";
-import AboutQuestion from "../components/AboutQuestion";
 
 export const dynamic = 'force-dynamic';
 
@@ -87,10 +83,6 @@ export default async function Home() {
 
    
       <Footer />
-      <Paintabouthero />
-      <Ordersection />
-      <Aboutlocation />
-      <AboutQuestion />
     </>
   );
 }
