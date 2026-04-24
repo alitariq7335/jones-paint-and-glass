@@ -5,6 +5,10 @@ const Navigation: GlobalConfig = {
   admin: {
     group: 'Globals',
   },
+  access: {
+    read: () => true,
+    update: ({ req }) => !!req.user, // ✅ any logged in user can update
+  },
   fields: [
     {
       name: 'logo',
