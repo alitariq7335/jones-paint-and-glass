@@ -10,10 +10,15 @@ import ProductServices from "@/app/components/Productservices";
 import ImageSlider from "@/app/components/ImageSlider";
 import Contractor from "@/app/components/Contractor";
 import DiySupportBlog from "@/app/components/DiySupportBlog";
-import DiySliderMedia from "@/app/components/DiySliderMedia";
 import JpgMedia from "@/app/components/Jpgmedia";
 import VideoSlider from "@/app/components/VideoSlider";
 import Diyhero from "@/app/components/Diyhero";
+import Quote from "@/app/components/Quote"
+import Contacthero from "@/app/components/Contacthero"
+import Inquireform from "@/app/components/Inquireform"
+import About from "@/app/components/About"
+import Features from "@/app/components/Features";
+
 
 
 export const dynamic = 'force-dynamic';
@@ -26,9 +31,14 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   contractor:Contractor,
   diySupportBlog: DiySupportBlog,
   jpgMedia:JpgMedia,
-   diySliderMedia:DiySliderMedia,
   videoSlider: VideoSlider,
   diyHero: Diyhero,
+  quote: Quote,
+  contactHero: Contacthero,
+  inquireForm: Inquireform,
+  about: About,  
+  features: Features,
+  
 
 };
 
