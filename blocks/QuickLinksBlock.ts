@@ -9,7 +9,7 @@ export const QuickLinksBlock: Block = {
     plural: 'Quick Links',
   },
   admin: {
-    group: 'Sections',
+    group: 'Content Sections',
   },
   fields: [
     {

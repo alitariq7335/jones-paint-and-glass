@@ -8,7 +8,8 @@ export const AboutLocationBlock: Block = {
     plural: 'Locations Grids',
   },
   admin: {
-    group: 'Sections',
+    group: 'Content Sections',
+
   },
   fields: [
     {

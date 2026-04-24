@@ -1,84 +1,28 @@
-"use client";
-import { useState, useRef } from "react";
+'use client';
+import { useState, useRef } from 'react';
 
-interface Faq {
-  id: number;
-  question: string;
-  answer: React.ReactNode;
+interface FaqItem {
+  id?: string
+  question: string
+  answer: string | React.ReactNode
 }
 
-const faqs: Faq[] = [
-  {
-    id: 1,
-    question: "Do you offer custom glass work?",
-    answer:
-      "Yes — we’re experienced with custom shower glass, decorative glass, custom mirrors, patterned or tinted glass, glass tabletops, and more, all cut and tempered to spec.",
-  },
-  {
-    id: 2,
-    question: "Do you do auto glass repair or replacement?",
-    answer:
-        "Absolutely — we provide auto glass repairs and windshield replacements, including fleet services in select locations. Check the information for your local JP&G store to see if auto glass service is offered there (not available at all stores)."
-  },
-  {
-    id: 3,
-    question: "Do you handle installation or just supply materials?",
-    answer:(
-      <p>
-        We supply quality products <strong>and</strong> offer professional
-        installation services for windows, doors, glass projects, and garage
-        doors. Contact your local showroom to confirm installation availability.
-      </p>
-    ),
-  },
-  {
-    id: 4,
-    question: "Can you help choose the right product for my project?",
-    answer: "Yes—that’s what we’re all about! Our team is made up of experts who can help you feel confident about what you need before you ever purchase anything. Let’s make sure you avoid the redo and get it right the first time!",
-  },
-    {
-    id: 5,
-    question: "Can you help choose the right product for my project?",
-    answer: (
-      <div className="space-y-2">
-        <p>
-          <strong>Yes!</strong>
-        </p>
-        <p>
-          <strong>Apply</strong> by speaking with your Jones Paint & Glass
-          representative or by clicking the "Get Financing" button on the bottom
-          of this page.
-        </p>
-        <p>
-          <strong>Select</strong> your financing terms based on the conditions
-          that work best for your personal situation and project.
-        </p>
-        <p>
-          <strong>Sign</strong> financing documents. Our financing company,
-          Finance of America, makes the process fast, easy, and straight-forward.
-        </p>
-        <p>
-          Finance of America is a simple, straightforward path to your dream
-          project. Apply with Jones Paint & Glass and get started today!
-        </p>
-      </div>
-    ),
-  },
-    {
-    id: 6,
-    question: "What is your return or warranty policy?",
-    answer: "Return and warranty policies vary by product and manufacturer — reach out to your nearest location for details on returns, warranties, and product guarantees.",
-  },
-];
+interface FaqsBlockProps {
+  heading?: string
+  subheading?: string
+  buttonText?: string
+  buttonLink?: string
+  faqs?: FaqItem[]
+}
 
 function AccordionItem({
   faq,
   isOpen,
   onToggle,
 }: {
-  faq: Faq;
-  isOpen: boolean;
-  onToggle: () => void;
+  faq: FaqItem
+  isOpen: boolean
+  onToggle: () => void
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -86,8 +30,8 @@ function AccordionItem({
     <div
       className="rounded-[16px] overflow-hidden transition-colors duration-300"
       style={{
-        border: isOpen ? "none" : "2px solid #0052C6",
-        background: isOpen ? "#0052C6" : "white",
+        border: isOpen ? 'none' : '2px solid #0052C6',
+        background: isOpen ? '#0052C6' : 'white',
       }}
     >
       {/* Question */}
@@ -97,14 +41,14 @@ function AccordionItem({
       >
         <span
           className="text-[18px] leading-snug transition-colors duration-300"
-          style={{ color: isOpen ? "white" : "#111827" }}
+          style={{ color: isOpen ? 'white' : '#111827' }}
         >
           {faq.question}
         </span>
 
         <span
           className="flex-shrink-0 w-7 h-7 flex items-center justify-center"
-          style={{ color: isOpen ? "white" : "#0052C6" }}
+          style={{ color: isOpen ? 'white' : '#0052C6' }}
         >
           {isOpen ? (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -133,17 +77,17 @@ function AccordionItem({
         style={{
           height:
             isOpen && contentRef.current
-              ? contentRef.current.scrollHeight + "px"
-              : "0px",
-          overflow: "hidden",
-          transition: "height 0.35s ease, opacity 0.3s ease",
+              ? contentRef.current.scrollHeight + 'px'
+              : '0px',
+          overflow: 'hidden',
+          transition: 'height 0.35s ease, opacity 0.3s ease',
           opacity: isOpen ? 1 : 0,
         }}
       >
         <div
           ref={contentRef}
           className="px-6 pb-6 text-[16px] leading-relaxed"
-          style={{ color: "rgba(255,255,255,0.88)" }}
+          style={{ color: 'rgba(255,255,255,0.88)' }}
         >
           {faq.answer}
         </div>
@@ -152,40 +96,59 @@ function AccordionItem({
   );
 }
 
+export default function Faqs({
+  heading = 'Got Questions? We\'ve Got Answers',
+  subheading,
+  buttonText = 'Ask Us Directly',
+  buttonLink = '#',
+  faqs = [],
+}: FaqsBlockProps) {
+  // Don't render if no FAQs provided
+  if (!faqs || faqs.length === 0) {
+    return null
+  }
 
+  const [openId, setOpenId] = useState<string | number | null>(0);
 
-export default function Faqs() {
-  const [openId, setOpenId] = useState<number | null>(1);
-
-  const toggle = (id: number) => {
-    setOpenId((prev) => (prev === id ? null : id));
+  const toggle = (id: string | number | undefined) => {
+    if (id !== undefined) {
+      setOpenId((prev) => (prev === id ? null : id));
+    }
   };
 
   return (
     <section className="relative flex flex-col items-center justify-center py-16 md:py-24 overflow-hidden">
       {/* Background */}
       <div
-        className="absolute -top-15 left-0 w-full pointer-events-none z-2" id="accordian-element"
+        className="absolute -top-15 left-0 w-full pointer-events-none z-2"
+        id="accordian-element"
         style={{
-          backgroundImage: "url(/assets/jt/elements/paint-12.png)",
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "top left",
-          height: "750px",
+          backgroundImage: 'url(/assets/jt/elements/paint-12.png)',
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'top left',
+          height: '750px',
         }}
       />
 
       {/* Heading */}
       <h2 className="text-[36px] lg:text-[48px] font-extrabold text-center mb-10 leading-tight font-['Avenir']">
-        Got Questions? <br /> We&apos;ve Got Answers
+        {heading}
       </h2>
 
-      {/*BUTTON */}
+      {/* Subheading */}
+      {subheading && (
+        <p className="text-center text-[18px] text-gray-600 mb-6 max-w-2xl px-4 font-['Avenir']">
+          {subheading}
+        </p>
+      )}
+
+      {/* Button */}
       <a
-        href="#"
-        className="group inline-flex items-center gap-2 rounded-[8px] bg-[#A5EBCD] px-5 py-3 text-[16px] font-bold text-black transition-colors relative z-3"
+        href={buttonLink}
+        className="group inline-flex items-center gap-2 rounded-[8px] bg-[#A5EBCD] px-5 py-3 text-[16px] font-bold text-black transition-colors relative z-3 hover:bg-[#8FE0BC]"
       >
-        Ask Us Directly
+        {buttonText}
         <svg
           className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
           viewBox="0 0 24 24"
@@ -204,12 +167,12 @@ export default function Faqs() {
       {/* FAQ List */}
       <div className="relative z-3 container mx-auto mt-20 px-4 lg:px-6 w-full md:w-[80%] lg:w-[70%]">
         <div className="flex flex-col gap-3">
-          {faqs.map((faq) => (
+          {faqs.map((faq, index) => (
             <AccordionItem
-              key={faq.id}
+              key={faq.id || index}
               faq={faq}
-              isOpen={openId === faq.id}
-              onToggle={() => toggle(faq.id)}
+              isOpen={openId === (faq.id || index)}
+              onToggle={() => toggle(faq.id || index)}
             />
           ))}
         </div>
