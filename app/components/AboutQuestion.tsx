@@ -8,16 +8,19 @@ const links = [
 
 export default function AboutQuestion() {
     return (
-        <section className="lg:pr-20 xl:pr-30 flex flex-col lg:flex-row items-stretch rounded-[8px] overflow-hidden">
+        <section className="relative container mx-auto flex flex-col lg:flex-row items-stretch rounded-[8px] gap-5 lg:gap-18" id="about-faqs">
+            <div className="hidden lg:block absolute -top-1 -left-40 lg:-left-50 z-2 w-full xl:w-[65%] lg:w-[70%] h-fit bg-[#EEF2FA] px-0 lg:px-10 py-0 lg:py-51 flex flex-col text-center lg:text-start justify-center" id="color-bg">
+               
+            </div>
 
             {/* ── Left ── */}
-            <div className="w-full lg:w-[50%] bg-[#EEF2FA] pr-10 md:pr-30 lg:pr-8 py-12 md:py-20 flex flex-col text-center lg:text-start justify-center pl-10 md:pl-30 lg:pl-30 xl:pl-30">
+            <div className="relative z-2 w-full lg:w-[50%] bg-[#EEF2FA] lg:bg-transparent px-4 lg:px-10 py-12 md:py-20 flex flex-col text-center lg:text-start justify-center overflow-hidden">
                 <div>
-                    <h2 className="text-[28px] lg:text-[36px] xl:text-[40px] font-extrabold text-gray-900 leading-tight mb-4 font-['Avenir']">
+                    <h2 className="text-[36px] xl:text-[40px] font-extrabold leading-tight mb-4 font-['Avenir']">
                         Looking for <br />Something Else?
                     </h2>
 
-                    <p className="text-[16px] md:text-[18px] text-gray-500 leading-relaxed mb-6">
+                    <p className="text-[16px] md:text-[18px] leading-relaxed mb-6">
                         If you're ready to start talking project details, click the button below to get a quote or stop into your nearest JP&amp;G location.
                     </p>
                 </div>
@@ -41,7 +44,7 @@ export default function AboutQuestion() {
             </div>
 
             {/* ── Right ── */}
-            <div className="flex-1 bg-white pr-10 sm:pr-20 md:pr-30 lg:pr-8 pl-10 sm:pl-20 md:pl-30 lg:pl-8 py-6 md:py-10">
+            <div className="flex-1 flex flex-col justify-end bg-white px-4 pt-10 md:pt-10 pb-20">
                 {links.map((link, i) => (
                     <a
                         key={i}
@@ -49,12 +52,12 @@ export default function AboutQuestion() {
                         className={`flex items-center justify-between py-5 group transition-all duration-300 ${i === 1 ? 'border-y-2 border-[#16B6E9]' : ''
                             }`}
                     >
-                        <span className="text-[15px] md:text-[17px] font-semibold text-gray-900 group-hover:text-[#0052C6] transition-colors">
+                        <span className="text-[20px] font-semibold group-hover:text-[#0052C6] transition-colors">
                             {link.label}
                         </span>
 
                         <svg
-                            className="w-5 h-5 text-gray-700 group-hover:translate-x-1 transition-transform duration-300"
+                            className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                             viewBox="0 0 24 24"
                             fill="none"
                         >

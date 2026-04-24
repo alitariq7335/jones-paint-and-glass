@@ -92,8 +92,6 @@ export default async function Home() {
         return <Component key={i} {...block} />;
       })}
 
-
-   
       <Footer />
     </>
   );
