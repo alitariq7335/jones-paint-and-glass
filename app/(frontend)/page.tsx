@@ -12,6 +12,12 @@ import DiySupportBlog from "@/app/components/DiySupportBlog";
 import JpgMedia from "@/app/components/Jpgmedia";
 import VideoSlider from "@/app/components/VideoSlider";
 import Diyhero from "@/app/components/Diyhero";
+import Quote from "@/app/components/Quote"
+import Contacthero from "@/app/components/Contacthero"
+import Inquireform from "@/app/components/Inquireform";
+import About from "@/app/components/About";
+import Features from "@/app/components/Features";
+
 
 export const dynamic = 'force-dynamic';
 
@@ -24,7 +30,12 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   diySupportBlog: DiySupportBlog,
   jpgMedia:JpgMedia,
   videoSlider: VideoSlider,
-diyHero: Diyhero,
+  diyHero: Diyhero,
+  quote: Quote,
+  contactHero: Contacthero,
+  inquireForm: Inquireform,
+  about: About,
+  features: Features,
 };
 
 export default async function Home() {
@@ -80,6 +91,7 @@ export default async function Home() {
         if (!Component) return null;
         return <Component key={i} {...block} />;
       })}
+
       <Footer />
     </>
   );

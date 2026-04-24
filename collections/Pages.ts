@@ -8,6 +8,11 @@ import { DiySupportBlogBlock } from '@/blocks/DiySupportBlog.block'
 import { JpgMedia } from '@/blocks/JpgMedia.block'
 import { DiyHeroBlock } from '@/blocks/Diyhero.block'
 import { VideoSliderBlock } from '@/blocks/Videoslider.block'
+import { QuoteBlock } from '@/blocks/Quote.block'
+import { ContactHeroBlock } from '@/blocks/Contacthero.block'
+import { InquireFormBlock } from '@/blocks/InquireForm.block'
+import { AboutBlock } from '@/blocks/About.block'
+import { FeaturesBlock } from '@/blocks/FeaturesBlock'
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -44,7 +49,11 @@ const Pages: CollectionConfig = {
         JpgMedia,
         DiyHeroBlock,
         VideoSliderBlock,
-        
+        QuoteBlock,
+        ContactHeroBlock,
+        InquireFormBlock,
+        AboutBlock,
+        FeaturesBlock,
       ],
     },
   ],
