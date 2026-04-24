@@ -59,7 +59,7 @@ export const FaqsBlock: Block = {
         },
         {
           name: 'answer',
-          type: 'richText',
+          type: 'textarea',
           required: true,
           admin: {
             description: 'The answer to the question (supports formatting)',
