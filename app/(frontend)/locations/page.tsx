@@ -76,7 +76,7 @@ export default async function LocationsPage() {
 
                     {loc.address && (
                       <p className="text-[14px] text-gray-500 leading-snug">
-                        {loc.address}
+                        {loc.services}
                       </p>
                     )}
 
