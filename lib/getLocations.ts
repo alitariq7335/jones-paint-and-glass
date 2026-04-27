@@ -21,7 +21,12 @@ export async function getLocationBySlug(slug: string) {
     const payload = await getPayload({ config: configPromise })
     const result = await payload.find({
       collection: 'locations' as any,
-      where: { slug: { equals: slug } },
+      where: {
+        or: [
+          { slug: { equals: slug } },
+          { slug: { equals: `/${slug}` } },
+        ],
+      },
       depth: 2,
       limit: 1,
     })
