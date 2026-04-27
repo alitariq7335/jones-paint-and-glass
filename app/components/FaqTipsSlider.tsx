@@ -10,7 +10,7 @@ interface Slide {
   } | null;
 }
 
-interface FaqTipsBlockProps {
+interface FaqTipsSliderBlockProps {
   heading?: string;
   description?: string;
   buttonText?: string;
@@ -18,13 +18,13 @@ interface FaqTipsBlockProps {
   slides?: Slide[];
 }
 
-export default function FaqTips({
+export default function FaqTipsSlider({
   heading = "Helpful Faq Tips",
   description = "Got questions about your paint, glass, or door Faq project? Check out our latest how-to videos with tips from JP&G pros.",
   buttonText = "See More",
   buttonLink = "#",
   slides = [],
-}: FaqTipsBlockProps) {
+}: FaqTipsSliderBlockProps) {
   const [visible, setVisible] = useState(3);
   const [current, setCurrent] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
