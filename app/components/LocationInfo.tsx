@@ -45,7 +45,7 @@ export default function LocationInfo({
             >
               {phone}
             </a>
-            <address className="not-italic text-white font-extralight text-[18px] md:text-[24px] leading-8 md:leading-10">
+            <address className="not-italic text-white font-extralight text-[16px] md:text-[24px] leading-8 md:leading-10">
               {address} <br />
               {cityStateZip}
             </address>
@@ -59,16 +59,16 @@ export default function LocationInfo({
 
             <div className="flex flex-wrap gap-6 md:gap-10 text-center md:text-start">
               <div className="md:w-auto w-full">
-                <p className="text-white text-[18px] uppercase mb-1">Mon - Fri</p>
-                <p className="text-white text-[18px]">{hoursMonFri}</p>
+                <p className="text-white text-[16px] uppercase mb-1">Mon - Fri</p>
+                <p className="text-white text-[16px]">{hoursMonFri}</p>
               </div>
               <div className="md:w-auto w-full">
-                <p className="text-white text-[18px] uppercase mb-1">Sat</p>
-                <p className="text-white text-[18px]">{hoursSaturday}</p>
+                <p className="text-white text-[16px] uppercase mb-1">Sat</p>
+                <p className="text-white text-[16px]">{hoursSaturday}</p>
               </div>
               <div className="md:w-auto w-full">
-                <p className="text-white text-[18px] uppercase mb-1">Sun</p>
-                <p className="text-white text-[18px]">{hoursSunday}</p>
+                <p className="text-white text-[16px] uppercase mb-1">Sun</p>
+                <p className="text-white text-[16px]">{hoursSunday}</p>
               </div>
             </div>
 

@@ -41,7 +41,7 @@ function ServiceCard({ service }: { service: Service }) {
         />
       </div>
       <div className="p-3 flex flex-col gap-1">
-        <p className="text-[18px] font-bold">{service.title}</p>
+        <p className="text-[16px] font-bold">{service.title}</p>
         
         <a  href={service.href || '#'}
           className="inline-flex items-center gap-1 text-[16px] font-medium hover:text-[#0052C6] transition-colors group"
@@ -81,7 +81,7 @@ export default function StoreLocation({
           <h1 className="text-[36px] md:text-[48px] font-extrabold mb-3 font-['Avenir']">
             {heading}
           </h1>
-          <div className="flex items-center justify-center gap-3 font-normal text-[18px] md:text-[24px]">
+          <div className="flex items-center justify-center gap-3 font-normal text-[16px] md:text-[24px]">
             <img src="/assets/jt/location-icon.png" className="w-5 h-6" alt="location" />
             {address}
           </div>
@@ -138,7 +138,7 @@ export default function StoreLocation({
                 </div>
                 <div>
                   <p className="font-bold text-[24px] sm:text-[32px] leading-tight">{specialistName}</p>
-                  <p className="text-[18px] mt-2 sm:mt-3">{specialistTitle}</p>
+                  <p className="text-[16px] mt-2 sm:mt-3">{specialistTitle}</p>
                 </div>
               </div>
             </div>
@@ -167,7 +167,7 @@ export default function StoreLocation({
                 <h3 className="text-white text-[28px] lg:text-[32px] leading-tight mb-4">
                   {heroCardHeading}
                 </h3>
-                <p className="text-white text-[18px] leading-relaxed">
+                <p className="text-white text-[16px] leading-relaxed">
                   {heroCardText}
                 </p>
               </div>

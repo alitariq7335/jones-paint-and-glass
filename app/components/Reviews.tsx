@@ -86,7 +86,7 @@ export default function Reviews({
             <h2 className="text-[28px] md:text-[38px] font-extrabold mb-3 font-['Avenir']">
               {heading}
             </h2>
-            <p className="text-[#0052C6] text-[18px] md:text-[24px] leading-relaxed max-w-lg">
+            <p className="text-[#0052C6] text-[16px] md:text-[24px] leading-relaxed max-w-lg">
               {subtext}
             </p>
           </div>
@@ -147,7 +147,7 @@ export default function Reviews({
                       <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="1.5" />
                     </svg>
                   </div>
-                  <p className="font-normal text-[18px]">{r.name}</p>
+                  <p className="font-normal text-[16px]">{r.name}</p>
                 </div>
               </div>
             ))}
