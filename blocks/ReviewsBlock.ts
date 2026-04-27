@@ -2,12 +2,14 @@ import type { Block } from 'payload'
 
 export const ReviewsBlock: Block = {
   slug: 'reviews',
+  imageURL: '/assets/blocks-preview/reviews.png',
+
   labels: {
     singular: 'Reviews',
     plural: 'Reviews',
   },
   admin: {
-    group: 'Sections',
+    group: 'Content',
   },
   fields: [
     {
