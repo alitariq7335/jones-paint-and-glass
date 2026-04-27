@@ -20,7 +20,6 @@ import Features from "@/app/components/Features";
 import Aboutlocation from "@/app/components/Aboutlocation"
 import QuickLinks from "@/app/components/QuickLinks"
 import Faqs from '@/app/components/Faqs'
-import FaqTipsSlider from '@/app/components/FaqTipsSlider'
 
 
 
@@ -44,7 +43,6 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   aboutLocation: Aboutlocation,
   quickLinks: QuickLinks,
   faqs: Faqs,
-  faqTipsSlider: FaqTipsSlider,
   
 };
 

@@ -1,5 +1,6 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
+import { getLocations } from './getLocations'
 
 export async function getNavigation() {
   try {
@@ -8,7 +9,40 @@ export async function getNavigation() {
       slug: 'navigation',
       depth: 2,
     })
-    return result ?? null
+
+    // ✅ Fetch all locations
+    const locations = await getLocations()
+
+    // ✅ Build locations dropdown from database
+    const locationsNavItem = {
+      type: 'dropdown',
+      label: 'Locations',
+      href: '/locations',
+      items: locations.map((loc: any) => ({
+        label: loc.name,
+        href: `/${loc.slug}`
+      })),
+    }
+
+    // ✅ Get existing nav items
+    const navItems = result?.navItems ?? []
+
+    // ✅ Replace Locations nav item with dynamic one
+    const hasLocations = navItems.some(
+      (item: any) => item.label?.toLowerCase() === 'locations'
+    )
+
+    return {
+      ...result,
+      navItems: hasLocations
+        ? navItems.map((item: any) =>
+            item.label?.toLowerCase() === 'locations'
+              ? locationsNavItem
+              : item
+          )
+        : navItems,
+    }
+
   } catch {
     return null
   }
