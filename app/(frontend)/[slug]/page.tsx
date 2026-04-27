@@ -47,9 +47,9 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   aboutLocation: Aboutlocation,
   quickLinks: QuickLinks,
   faqs: Faqs,
-  Reviews: Reviews,
+  reviews: Reviews,
   storeLocation: StoreLocation,
-  LocationInfo: LocationInfo,
+  locationInfo: LocationInfo,
   
 
 };
