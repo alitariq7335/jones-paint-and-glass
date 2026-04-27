@@ -53,6 +53,7 @@ const Locations: CollectionConfig = {
       blocks: [
         ReviewsBlock,
         StoreLocationBlock,
+
       ],
     },
   ],
