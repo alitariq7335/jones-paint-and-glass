@@ -45,7 +45,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   aboutLocation: Aboutlocation,
   quickLinks: QuickLinks,
   faqs: Faqs,
-  faqTipsSlider: FaqsTipsSlider,
+  faqsTipsSlider: FaqsTipsSlider,
 };
 
 export default async function DynamicPage({
