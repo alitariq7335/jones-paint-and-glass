@@ -1,7 +1,7 @@
 import type { Block } from 'payload'
 
-export const FaqTipsBlock: Block = {
-  slug: 'faqTips',
+export const FaqTipsSlider: Block = {
+  slug: 'faqTipsSlider',
   imageURL: '/assets/blocks-preview/faqtips.png',
   labels: {
     singular: 'Faq Tips Block',
