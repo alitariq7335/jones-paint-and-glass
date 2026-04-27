@@ -22,7 +22,6 @@ import Aboutlocation from "@/app/components/Aboutlocation"
 import QuickLinks from "@/app/components/QuickLinks"
 import Faqs from '@/app/components/Faqs'
 import { getLocationBySlug } from "@/lib/getLocations";
-import FaqTipsSlider from '@/app/components/FaqTipsSlider'
 
 
 export const dynamic = 'force-dynamic';
@@ -45,7 +44,6 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   aboutLocation: Aboutlocation,
   quickLinks: QuickLinks,
   faqs: Faqs,
-  faqTipsSlider: FaqTipsSlider,
   
 
 };
