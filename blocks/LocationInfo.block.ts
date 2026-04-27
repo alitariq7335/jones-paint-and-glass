@@ -7,7 +7,7 @@ export const LocationInfoBlock: Block = {
     plural: 'Location Info Blocks',
   },
   admin: {
-    group: 'Location Sections',
+    group: 'Content',
   },
   fields: [
     {

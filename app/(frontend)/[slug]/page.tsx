@@ -23,6 +23,7 @@ import QuickLinks from "@/app/components/QuickLinks"
 import Faqs from '@/app/components/Faqs'
 import Reviews from "@/app/components/Reviews";
 import StoreLocation from "@/app/components/StoreLocation"
+import LocationInfo from "@/app/components/LocationInfo"
 import { getLocationBySlug } from "@/lib/getLocations";
 
 
@@ -48,6 +49,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   faqs: Faqs,
   Reviews: Reviews,
   storeLocation: StoreLocation,
+  LocationInfo: LocationInfo,
   
 
 };
