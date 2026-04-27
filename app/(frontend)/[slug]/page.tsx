@@ -21,6 +21,8 @@ import Features from "@/app/components/Features";
 import Aboutlocation from "@/app/components/Aboutlocation"
 import QuickLinks from "@/app/components/QuickLinks"
 import Faqs from '@/app/components/Faqs'
+import Reviews from "@/app/components/Reviews";
+import StoreLocation from "@/app/components/StoreLocation"
 import { getLocationBySlug } from "@/lib/getLocations";
 
 
@@ -44,6 +46,8 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   aboutLocation: Aboutlocation,
   quickLinks: QuickLinks,
   faqs: Faqs,
+  Reviews: Reviews,
+  storeLocation: StoreLocation,
   
 
 };
