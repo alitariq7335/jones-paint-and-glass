@@ -20,7 +20,8 @@ import Features from "@/app/components/Features";
 import Aboutlocation from "@/app/components/Aboutlocation"
 import QuickLinks from "@/app/components/QuickLinks"
 import Faqs from '@/app/components/Faqs'
-import FaqsTipsSlider from "@/app/components/FaqsTipsSlider";
+
+
 
 export const dynamic = 'force-dynamic';
 
@@ -42,7 +43,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   aboutLocation: Aboutlocation,
   quickLinks: QuickLinks,
   faqs: Faqs,
-  faqsTipsSlider: FaqsTipsSlider,
+  
 };
 
 export default async function Home() {
@@ -65,6 +66,7 @@ export default async function Home() {
     return (
       <>
         <Navbar navData={navData} />
+
         <div className="flex items-center justify-center h-screen">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">No Home Page Found</h1>
@@ -87,10 +89,7 @@ export default async function Home() {
 
   return (
     <>
-      <Navbar navData={navData} />
-
-
-      
+      <Navbar navData={navData} />      
       {/* Render blocks from Payload */}
       {(page.blocks ?? []).map((block: any, i: number) => {
         if (!block || !block.blockType) return null;
