@@ -1,9 +1,9 @@
 import { getPayload } from 'payload'
-import configPromise from '@payload-config'
+import config from '@/payload.config'  
 
 export async function getLocations() {
   try {
-    const payload = await getPayload({ config: configPromise })
+    const payload = await getPayload({ config })
     const result = await payload.find({
       collection: 'locations' as any,
       limit: 100,
@@ -11,14 +11,15 @@ export async function getLocations() {
       depth: 2,
     })
     return result.docs ?? []
-  } catch {
+  } catch (err) {
+    console.error('getLocations error:', err)
     return []
   }
 }
 
 export async function getLocationBySlug(slug: string) {
   try {
-    const payload = await getPayload({ config: configPromise })
+    const payload = await getPayload({ config })
     const result = await payload.find({
       collection: 'locations' as any,
       where: {
@@ -30,8 +31,10 @@ export async function getLocationBySlug(slug: string) {
       depth: 2,
       limit: 1,
     })
+    console.log('getLocationBySlug result:', JSON.stringify(result.docs[0]?.slug))
     return result.docs[0] ?? null
-  } catch {
+  } catch (err) {
+    console.error('getLocationBySlug error:', err)
     return null
   }
 }
