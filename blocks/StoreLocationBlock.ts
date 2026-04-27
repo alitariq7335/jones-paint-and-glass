@@ -2,6 +2,8 @@ import type { Block } from 'payload'
 
 export const StoreLocationBlock: Block = {
   slug: 'storeLocation',
+  imageURL: '/assets/blocks-preview/storelocation.png',
+
   labels: {
     singular: 'Store Location',
     plural: 'Store Locations',
