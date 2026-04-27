@@ -1,4 +1,7 @@
 import { HeroBlock } from '@/blocks/Hero.block'
+import { LocationInfoBlock } from '@/blocks/LocationInfo.block'
+import { ReviewsBlock } from '@/blocks/ReviewsBlock'
+import { StoreLocationBlock } from '@/blocks/StoreLocationBlock'
 import type { CollectionConfig } from 'payload'
 
 const Locations: CollectionConfig = {
@@ -49,7 +52,9 @@ const Locations: CollectionConfig = {
       type: 'blocks',
       label: 'Page Blocks',
       blocks: [
-        HeroBlock,
+        StoreLocationBlock,
+        LocationInfoBlock,
+        ReviewsBlock,
       ],
     },
   ],
