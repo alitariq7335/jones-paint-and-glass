@@ -68,6 +68,7 @@ const Pages: CollectionConfig = {
         QuickLinksBlock,
         FaqsBlock,
         FaqTipsSlider,
+     
       ],
     },
   ],

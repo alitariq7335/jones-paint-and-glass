@@ -21,6 +21,8 @@ import Aboutlocation from "@/app/components/Aboutlocation"
 import QuickLinks from "@/app/components/QuickLinks"
 import Faqs from '@/app/components/Faqs'
 import FaqTipsSlider from '@/app/components/FaqTipsSlider'
+import Reviews from "@/app/components/Reviews";
+import StoreLocation from "@/app/components/StoreLocation"
 
 
 
@@ -45,6 +47,8 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   quickLinks: QuickLinks,
   faqs: Faqs,
   faqTipsSlider: FaqTipsSlider,
+  Reviews: Reviews,
+  storeLocation: StoreLocation,
   
 };
 
