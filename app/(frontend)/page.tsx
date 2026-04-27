@@ -63,6 +63,7 @@ export default async function Home() {
     return (
       <>
         <Navbar navData={navData} />
+
         <div className="flex items-center justify-center h-screen">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">No Home Page Found</h1>
@@ -85,10 +86,7 @@ export default async function Home() {
 
   return (
     <>
-      <Navbar navData={navData} />
-
-
-      
+      <Navbar navData={navData} />      
       {/* Render blocks from Payload */}
       {(page.blocks ?? []).map((block: any, i: number) => {
         if (!block || !block.blockType) return null;

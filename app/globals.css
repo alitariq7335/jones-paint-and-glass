@@ -315,3 +315,28 @@ body {
         height: 250px !important;
   }
 }
+
+/* ================ END ================== */
+
+@media (max-width: 1024px) {
+  #fork-map iframe {
+    height: 450px !important;
+  }
+  
+}
+
+@media (max-width: 786px) {
+  #fork-map iframe {
+    height: 350px !important;
+  }
+  
+}
+
+@media (max-width: 440px) {
+  #fork-element {
+    padding: 15px;
+    width: 30% !important;
+    top: -70px;
+  }
+  
+}
