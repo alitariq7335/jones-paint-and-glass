@@ -8,7 +8,7 @@ const slides = [
   { id: 4, image: "/assets/jt/media-1.png" },
 ];
 
-export default function Faqstips() {
+export default function FaqsTipsSlider() {
   const [visible, setVisible] = useState(3);
   const [current, setCurrent] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);

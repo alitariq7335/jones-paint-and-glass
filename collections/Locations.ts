@@ -1,0 +1,58 @@
+import { HeroBlock } from '@/blocks/Hero.block'
+import type { CollectionConfig } from 'payload'
+
+const Locations: CollectionConfig = {
+  slug: 'locations',
+  admin: {
+    useAsTitle: 'name',
+    group: 'Content',
+    defaultColumns: ['name', 'slug', 'updatedAt'],
+  },
+  access: {
+    read: () => true,
+    create: ({ req }) => !!req.user,
+    update: ({ req }) => !!req.user,
+    delete: ({ req }) => !!req.user,
+  },
+  fields: [
+   {
+      name: 'name',
+      type: 'text',
+      label: 'Location Name',
+      required: true,
+    },
+    {
+      name: 'slug',
+      type: 'text',
+      label: 'Location Slug',
+      required: true,
+      unique: true,
+      admin: {
+        description: 'e.g. "vernal" → /locations/vernal',
+      },
+    },
+   
+    {
+      name: 'address',
+      type: 'text',
+      label: 'Address',
+      required: true,
+    },
+    {
+      name: 'locationImage',
+      type: 'upload',
+      relationTo: 'media' as any,
+      required: true,
+    },
+    {
+      name: 'blocks',
+      type: 'blocks',
+      label: 'Page Blocks',
+      blocks: [
+        HeroBlock,
+      ],
+    },
+  ],
+}
+
+export default Locations
