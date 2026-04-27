@@ -36,9 +36,9 @@ const Locations: CollectionConfig = {
     },
    
     {
-      name: 'address',
+      name: 'services',
       type: 'text',
-      label: 'Address',
+      label: 'Products and Services',
       required: true,
     },
     {
