@@ -13,21 +13,20 @@ import DiySupportBlog from "@/app/components/DiySupportBlog";
 import JpgMedia from "@/app/components/Jpgmedia";
 import VideoSlider from "@/app/components/VideoSlider";
 import Diyhero from "@/app/components/Diyhero";
-import Quote from "@/app/components/Quote"
-import Contacthero from "@/app/components/Contacthero"
-import Inquireform from "@/app/components/Inquireform"
-import About from "@/app/components/About"
+import Quote from "@/app/components/Quote";
+import Contacthero from "@/app/components/Contacthero";
+import Inquireform from "@/app/components/Inquireform";
+import About from "@/app/components/About";
 import Features from "@/app/components/Features";
-import Aboutlocation from "@/app/components/Aboutlocation"
-import QuickLinks from "@/app/components/QuickLinks"
-import Faqs from '@/app/components/Faqs'
+import Aboutlocation from "@/app/components/Aboutlocation";
+import QuickLinks from "@/app/components/QuickLinks";
+import Faqs from "@/app/components/Faqs";
 import Reviews from "@/app/components/Reviews";
-import StoreLocation from "@/app/components/StoreLocation"
-import LocationInfo from "@/app/components/LocationInfo"
+import StoreLocation from "@/app/components/StoreLocation";
+import LocationInfo from "@/app/components/LocationInfo";
 import { getLocationBySlug } from "@/lib/getLocations";
 
-
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 const blockMap: Record<string, React.ComponentType<any>> = {
   hero: Hero,
@@ -50,8 +49,6 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   reviews: Reviews,
   storeLocation: StoreLocation,
   locationInfo: LocationInfo,
-  
-
 };
 
 export default async function DynamicPage({
@@ -75,23 +72,23 @@ export default async function DynamicPage({
 
   //  — If not found in Pages, check Locations collection
   if (!page) {
-    const location = await getLocationBySlug(slug)
+    const location = await getLocationBySlug(slug);
 
     //  — If not found in Locations either, show 404
-    if (!location) return notFound()
+    if (!location) return notFound();
 
     //  — Render location page with its blocks
     return (
       <>
         <Navbar navData={navData} />
         {(location.blocks ?? []).map((block: any, i: number) => {
-          const Component = blockMap[block.blockType]
-          if (!Component) return null
-          return <Component key={i} {...block} />
+          const Component = blockMap[block.blockType];
+          if (!Component) return null;
+          return <Component key={i} {...block} />;
         })}
         <Footer />
       </>
-    )
+    );
   }
 
   //  — Render normal page with its blocks
