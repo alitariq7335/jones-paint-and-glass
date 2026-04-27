@@ -16,7 +16,7 @@ import { FeaturesBlock } from '@/blocks/FeaturesBlock'
 import { AboutLocationBlock } from '@/blocks/AboutLocationBlock'
 import { QuickLinksBlock } from '@/blocks/QuickLinksBlock'
 import { FaqsBlock } from '@/blocks/Faqsblock.block'
-import { FaqTipsSlider } from '@/blocks/FaqTipsSlider.block'
+
 
 const Pages: CollectionConfig = {
   slug: 'pages',

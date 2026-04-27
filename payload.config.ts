@@ -9,6 +9,7 @@ import Pages from './collections/Pages'
 import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage'
 import { cloudinaryAdapter } from './lib/cloudinaryAdapter'
 import Users from './collections/Users'
+import Locations from './collections/Locations'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -43,7 +44,8 @@ export default buildConfig({
   collections: [
     Users,
     Media,
-    Pages,       // ✅ Navigation removed from here
+    Pages,
+    Locations,
   ],
 
   // ✅ Navigation moved here as a global

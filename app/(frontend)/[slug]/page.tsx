@@ -24,6 +24,7 @@ import Faqs from '@/app/components/Faqs'
 import FaqTipsSlider from '@/app/components/FaqTipsSlider'
 import Reviews from "@/app/components/Reviews";
 import StoreLocation from "@/app/components/StoreLocation"
+import { getLocationBySlug } from "@/lib/getLocations";
 
 
 export const dynamic = 'force-dynamic';
@@ -32,16 +33,16 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   hero: Hero,
   diySlider: DiySlider,
   productServices: ProductServices,
-  imageSlider:ImageSlider,
-  contractor:Contractor,
+  imageSlider: ImageSlider,
+  contractor: Contractor,
   diySupportBlog: DiySupportBlog,
-  jpgMedia:JpgMedia,
+  jpgMedia: JpgMedia,
   videoSlider: VideoSlider,
   diyHero: Diyhero,
   quote: Quote,
   contactHero: Contacthero,
   inquireForm: Inquireform,
-  about: About,  
+  about: About,
   features: Features,
   aboutLocation: Aboutlocation,
   quickLinks: QuickLinks,
@@ -49,43 +50,60 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   faqTipsSlider: FaqTipsSlider,
   Reviews: Reviews,
   storeLocation: StoreLocation,
+  
 
 };
 
 export default async function DynamicPage({
-  
   params,
 }: {
-  params: Promise<{ slug: string }>;  // ✅ Now a Promise
+  params: Promise<{ slug: string }>;
 }) {
-
   const navData = await getNavigation();
-
-  const { slug } = await params;  // ✅ Await it
-
+  const { slug } = await params;
   const payload = await getPayload({ config });
 
+  //  — Check Pages collection first
   const { docs } = await (payload as any).find({
     collection: "pages",
-    where: { slug: { equals: slug } },  // ✅ Use destructured slug
+    where: { slug: { equals: slug } },
     depth: 2,
     limit: 1,
   });
 
   const page = docs[0];
-  if (!page) return notFound();
 
+  //  — If not found in Pages, check Locations collection
+  if (!page) {
+    const location = await getLocationBySlug(slug)
+
+    //  — If not found in Locations either, show 404
+    if (!location) return notFound()
+
+    //  — Render location page with its blocks
+    return (
+      <>
+        <Navbar navData={navData} />
+        {(location.blocks ?? []).map((block: any, i: number) => {
+          const Component = blockMap[block.blockType]
+          if (!Component) return null
+          return <Component key={i} {...block} />
+        })}
+        <Footer />
+      </>
+    )
+  }
+
+  //  — Render normal page with its blocks
   return (
     <>
-    <Navbar navData={navData} />
-
+      <Navbar navData={navData} />
       {(page.blocks ?? []).map((block: any, i: number) => {
         const Component = blockMap[block.blockType];
         if (!Component) return null;
         return <Component key={i} {...block} />;
       })}
-   
-      <Footer/>
+      <Footer />
     </>
   );
 }
