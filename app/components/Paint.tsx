@@ -29,7 +29,7 @@ const features = [
     },
 ];
 
-export default function Exteriorpaint() {
+export default function Paint() {
     return (
         <section className="py-14 md:py-26 bg-white">
             <div className="container mx-auto px-4 lg:px-6">

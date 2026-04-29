@@ -20,10 +20,6 @@ import Features from "@/app/components/Features";
 import Aboutlocation from "@/app/components/Aboutlocation"
 import QuickLinks from "@/app/components/QuickLinks"
 import Faqs from '@/app/components/Faqs'
-import Exteriorhero from "../components/Exteriorhero";
-import Exteriorpaint from "../components/Exteriorpaint";
-import Exteriorbrand from "../components/Exteriorbrand";
-import Exteriorservices from "../components/Exteriorservices";
 
 
 
