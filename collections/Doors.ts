@@ -1,5 +1,5 @@
 import { BrandsBlock } from '@/blocks/Brandsblock.block'
-import { ExteriorHeroBlock } from '@/blocks/ExteriorHero.block'
+import { ExteriorHero } from '@/blocks/ExteriorHero.block'
 import { ExteriorServicesBlock } from '@/blocks/ExteriorServices.block'
 import { FaqTipsSlider } from '@/blocks/FaqTipsSlider.block'
 import { FeatureCardsBlock } from '@/blocks/FeatureCards.block'
@@ -7,9 +7,6 @@ import { FeaturedBrandBlock } from '@/blocks/FeaturedBrandBlock'
 import { FeatureListBlock } from '@/blocks/FeatureListBlock'
 import { HeroBlock } from '@/blocks/Hero.block'
 import { ImageSliderBlock } from '@/blocks/ImageSlider.block'
-import { LocationInfoBlock } from '@/blocks/LocationInfo.block'
-import { ReviewsBlock } from '@/blocks/ReviewsBlock'
-import { StoreLocationBlock } from '@/blocks/StoreLocationBlock'
 import type { CollectionConfig } from 'payload'
 
 const Doors: CollectionConfig = {
@@ -49,7 +46,7 @@ const Doors: CollectionConfig = {
       type: 'blocks',
       label: 'Page Blocks',
       blocks: [
-        ExteriorHeroBlock,
+        ExteriorHero,
         FeatureListBlock,
         FeaturedBrandBlock,
         ExteriorServicesBlock,

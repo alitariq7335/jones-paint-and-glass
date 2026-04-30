@@ -1,6 +1,6 @@
 import type { Block } from 'payload'
 
-export const ExteriorHeroBlock: Block = {
+export const ExteriorHero: Block = {
   slug: 'exteriorHero',
   imageURL: '/assets/blocks-preview/exteriorhero.png',
   labels: {

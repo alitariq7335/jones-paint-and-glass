@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-interface ExteriorHeroBlockProps {
+interface ExteriorHeroProps {
   heading?: string;
   description?: string;
   image?: {
@@ -14,7 +14,7 @@ export default function ExteriorHero({
   heading = "Exterior Paint",
   description = "Not all paint is the same. Exterior paint has characteristics that make it better suited for outdoor environments and surfaces.",
   image,
-}: ExteriorHeroBlockProps) {
+}: ExteriorHeroProps) {
   const imageUrl = image?.url?.trim() ? image.url : "/assets/jt/exterior-hero.png";
   const imageAlt = image?.alt?.trim() ? image.alt : heading;
 

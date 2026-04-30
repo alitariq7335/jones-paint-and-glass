@@ -1,5 +1,5 @@
 import { BrandsBlock } from '@/blocks/Brandsblock.block'
-import { ExteriorHeroBlock } from '@/blocks/ExteriorHero.block'
+import { ExteriorHero } from '@/blocks/ExteriorHero.block'
 import { ExteriorServicesBlock } from '@/blocks/ExteriorServices.block'
 import { FaqTipsSlider } from '@/blocks/FaqTipsSlider.block'
 import { FeatureCardsBlock } from '@/blocks/FeatureCards.block'
@@ -46,7 +46,7 @@ const Paint: CollectionConfig = {
       type: 'blocks',
       label: 'Page Blocks',
       blocks: [
-        ExteriorHeroBlock,
+        ExteriorHero,
         FeatureListBlock,
         FeaturedBrandBlock,
         ExteriorServicesBlock,
