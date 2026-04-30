@@ -1,7 +1,7 @@
 import type { Block } from 'payload'
 
-export const ExteriorHeroBlock: Block = {
-  slug: 'exteriorHero',
+export const SubHero: Block = {
+  slug: 'subpage-hero',
   imageURL: '/assets/blocks-preview/exteriorhero.png',
   labels: {
     singular: 'Hero Block',
