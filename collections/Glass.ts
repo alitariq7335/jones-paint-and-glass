@@ -1,7 +1,10 @@
-import { HeroBlock } from '@/blocks/Hero.block'
-import { LocationInfoBlock } from '@/blocks/LocationInfo.block'
-import { ReviewsBlock } from '@/blocks/ReviewsBlock'
-import { StoreLocationBlock } from '@/blocks/StoreLocationBlock'
+import { ExteriorHeroBlock } from '@/blocks/ExteriorHero.block'
+import { ExteriorServicesBlock } from '@/blocks/ExteriorServices.block'
+import { FaqTipsSlider } from '@/blocks/FaqTipsSlider.block'
+import { FeaturedBrandBlock } from '@/blocks/FeaturedBrandBlock'
+import { FeatureListBlock } from '@/blocks/FeatureListBlock'
+import { ImageSliderBlock } from '@/blocks/ImageSlider.block'
+
 import type { CollectionConfig } from 'payload'
 
 const Glass: CollectionConfig = {
@@ -55,9 +58,12 @@ const Glass: CollectionConfig = {
       type: 'blocks',
       label: 'Page Blocks',
       blocks: [
-        StoreLocationBlock,
-        LocationInfoBlock,
-        ReviewsBlock,
+        ExteriorHeroBlock,
+        FeatureListBlock,
+        FeaturedBrandBlock,
+        ExteriorServicesBlock,
+        ImageSliderBlock,
+        FaqTipsSlider,
       ],
     },
   ],

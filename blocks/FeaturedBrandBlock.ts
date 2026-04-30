@@ -2,12 +2,13 @@ import type { Block } from 'payload'
 
 export const FeaturedBrandBlock: Block = {
   slug: 'featuredBrand',
+  imageURL: '/assets/blocks-preview/featuredbrand.png',
   labels: {
     singular: 'Featured Brand',
     plural: 'Featured Brands',
   },
-  admin: {
-    group: 'Sections',
+ admin: {
+    group: 'Content',
   },
   fields: [
     {
