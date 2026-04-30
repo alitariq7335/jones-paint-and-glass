@@ -28,12 +28,11 @@ import { getLocationBySlug } from "@/lib/getLocations";
 import { getPaintBySlug } from "@/lib/getPaint";
 import { getGlassBySlug } from "@/lib/getGlass";
 import { getDoorsBySlug } from "@/lib/getDoors";
-import faqTipsSlider from "@/app/components/FaqTipsSlider";
-import ExteriorHero from "@/app/components/ExteriorHero";
 import FeatureList from "@/app/components/FeatureList";
 import FeaturedBrand from "@/app/components/FeaturedBrand";
 import ExteriorServices from "@/app/components/Exteriorservices";
 import FaqTipsSlider from "@/app/components/FaqTipsSlider";
+import ExteriorHero from "@/app/components/ExteriorHero";
 
 export const dynamic = "force-dynamic";
 
