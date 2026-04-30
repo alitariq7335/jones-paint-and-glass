@@ -1,6 +1,8 @@
+import { BrandsBlock } from '@/blocks/Brandsblock.block'
 import { ExteriorHeroBlock } from '@/blocks/ExteriorHero.block'
 import { ExteriorServicesBlock } from '@/blocks/ExteriorServices.block'
 import { FaqTipsSlider } from '@/blocks/FaqTipsSlider.block'
+import { FeatureCardsBlock } from '@/blocks/FeatureCards.block'
 import { FeaturedBrandBlock } from '@/blocks/FeaturedBrandBlock'
 import { FeatureListBlock } from '@/blocks/FeatureListBlock'
 import { HeroBlock } from '@/blocks/Hero.block'
@@ -53,6 +55,8 @@ const Doors: CollectionConfig = {
         ExteriorServicesBlock,
         ImageSliderBlock,
         FaqTipsSlider,
+        BrandsBlock,
+        FeatureCardsBlock,
       ],
     },
   ],
