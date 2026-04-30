@@ -31,7 +31,7 @@ import { getDoorsBySlug } from "@/lib/getDoors";
 import FeatureList from "@/app/components/FeatureList";
 import FeaturedBrand from "@/app/components/FeaturedBrand";
 import FaqTipsSlider from "@/app/components/FaqTipsSlider";
-import ExteriorServices from "@/app/components/ExteriorServices";
+import ExteriorServices from "@/app/components/Exteriorservices";
 
 export const dynamic = "force-dynamic";
 
