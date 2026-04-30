@@ -1,4 +1,4 @@
-import { getPaint } from "@/lib/getPaint";
+import { getDoors } from "@/lib/getDoors";
 import { getNavigation } from "@/lib/getNavigation";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
@@ -7,9 +7,9 @@ import Link from "next/link";
 
 export const dynamic = 'force-dynamic';
 
-export default async function PaintPage() {
+export default async function DoorsPage() {
   const navData = await getNavigation();
-  const paintItems = await getPaint();
+  const doorsItems = await getDoors();
 
   return (
     <>
@@ -25,17 +25,17 @@ export default async function PaintPage() {
                 Jones Paint &amp; Glass
               </p>
               <h2 className="text-[38px] font-extrabold mb-3 font-['Avenir']">
-                Paint Products &amp; Services
+                Doors Products &amp; Services
               </h2>
               <p className="text-[24px] leading-relaxed mb-10 mx-auto lg:mx-0 max-w-md">
                 All the colors, styles, and stains you need, with tips from JP&amp;G pros.
               </p>
 
               <div className="rounded-[16px] overflow-hidden w-full">
-                {paintItems[0]?.locationImage?.url ? (
+                {doorsItems[0]?.locationImage?.url ? (
                   <Image
-                    src={paintItems[0].locationImage.url}
-                    alt={paintItems[0].locationImage.alt || paintItems[0].name}
+                    src={doorsItems[0].locationImage.url}
+                    alt={doorsItems[0].locationImage.alt || doorsItems[0].name}
                     width={600}
                     height={450}
                     className="w-full h-full object-cover"
@@ -43,7 +43,7 @@ export default async function PaintPage() {
                 ) : (
                   <Image
                     src="/assets/jt/jone-paint-link.png"
-                    alt="Paint Products"
+                    alt="Doors Products"
                     width={600}
                     height={450}
                     className="w-full h-full object-cover"
@@ -52,13 +52,13 @@ export default async function PaintPage() {
               </div>
             </div>
 
-            {/* ── Right: dynamic links from Paint collection ── */}
+            {/* ── Right: dynamic links from Doors collection ── */}
             <div className="flex-1 flex flex-col gap-8 w-full">
-              {paintItems.length > 0 ? (
-                paintItems.map((item: any, index: number) => (
+              {doorsItems.length > 0 ? (
+                doorsItems.map((item: any, index: number) => (
                   <Link
                     key={item.id}
-                    href={`/paint/${item.slug}`}
+                    href={`/doors/${item.slug}`}
                     className="flex items-center justify-between px-5 py-7 rounded-[16px] border transition-colors group"
                     style={{
                       background: index === 0 ? '#0052C6' : 'white',
@@ -89,7 +89,7 @@ export default async function PaintPage() {
                 ))
               ) : (
                 <p className="text-gray-500 text-center py-10">
-                  No paint products found. Add some from the admin panel.
+                  No Doors products found. Add some from the admin panel.
                 </p>
               )}
             </div>
