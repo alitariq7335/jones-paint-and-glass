@@ -28,7 +28,7 @@ const Glass: CollectionConfig = {
     {
       name: 'name',
       type: 'text',
-      label: 'Location Name',
+      label: 'Page Name',
       required: true,
     },
     {
@@ -41,18 +41,7 @@ const Glass: CollectionConfig = {
         description: 'e.g. "vernal" → /locations/vernal',
       },
     },
-    {
-      name: 'services',
-      type: 'text',
-      label: 'Products and Services',
-      required: true,
-    },
-    {
-      name: 'locationImage',
-      type: 'upload',
-      relationTo: 'media' as any,
-      required: true,
-    },
+    
     {
       name: 'blocks',
       type: 'blocks',
