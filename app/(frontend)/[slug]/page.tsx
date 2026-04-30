@@ -29,6 +29,10 @@ import { getPaintBySlug } from "@/lib/getPaint";
 import { getGlassBySlug } from "@/lib/getGlass";
 import { getDoorsBySlug } from "@/lib/getDoors";
 import faqTipsSlider from "@/app/components/FaqTipsSlider";
+import ExteriorHero from "@/app/components/ExteriorHero";
+import FeatureList from "@/app/components/FeatureList";
+import FeaturedBrand from "@/app/components/FeaturedBrand";
+import ExteriorServices from "@/app/components/Exteriorservices";
 
 export const dynamic = "force-dynamic";
 
@@ -54,6 +58,11 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   reviews: Reviews,
   storeLocation: StoreLocation,
   locationInfo: LocationInfo,
+  exteriorHero:ExteriorHero,
+  featureList:FeatureList,
+  featuredBrand:FeaturedBrand,
+  exteriorServices:ExteriorServices,
+
 };
 
 export default async function DynamicPage({

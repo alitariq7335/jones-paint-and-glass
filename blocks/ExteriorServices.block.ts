@@ -8,7 +8,7 @@ export const ExteriorServicesBlock: Block = {
     plural: 'Exterior Services Blocks',
   },
   admin: {
-    group: 'Services',
+    group: 'Content',
   },
   fields: [
     {

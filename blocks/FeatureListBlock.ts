@@ -2,12 +2,13 @@ import type { Block } from 'payload'
 
 export const FeatureListBlock: Block = {
   slug: 'featureList',
+  imageURL: '/assets/blocks-preview/featuredlist.png',
   labels: {
     singular: 'Feature List',
     plural: 'Feature Lists',
   },
   admin: {
-    group: 'Sections',
+    group: 'Content',
   },
   fields: [
     {

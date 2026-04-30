@@ -1,4 +1,10 @@
+import { ExteriorHeroBlock } from '@/blocks/ExteriorHero.block'
+import { ExteriorServicesBlock } from '@/blocks/ExteriorServices.block'
+import { FaqTipsSlider } from '@/blocks/FaqTipsSlider.block'
+import { FeaturedBrandBlock } from '@/blocks/FeaturedBrandBlock'
+import { FeatureListBlock } from '@/blocks/FeatureListBlock'
 import { HeroBlock } from '@/blocks/Hero.block'
+import { ImageSliderBlock } from '@/blocks/ImageSlider.block'
 import { LocationInfoBlock } from '@/blocks/LocationInfo.block'
 import { ReviewsBlock } from '@/blocks/ReviewsBlock'
 import { StoreLocationBlock } from '@/blocks/StoreLocationBlock'
@@ -52,9 +58,12 @@ const Doors: CollectionConfig = {
       type: 'blocks',
       label: 'Page Blocks',
       blocks: [
-        StoreLocationBlock,
-        LocationInfoBlock,
-        ReviewsBlock,
+        ExteriorHeroBlock,
+        FeatureListBlock,
+        FeaturedBrandBlock,
+        ExteriorServicesBlock,
+        ImageSliderBlock,
+        FaqTipsSlider,
       ],
     },
   ],

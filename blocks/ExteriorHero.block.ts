@@ -4,11 +4,11 @@ export const ExteriorHeroBlock: Block = {
   slug: 'exteriorHero',
   imageURL: '/assets/blocks-preview/exteriorhero.png',
   labels: {
-    singular: 'Exterior Hero Block',
-    plural: 'Exterior Hero Blocks',
+    singular: 'Hero Block',
+    plural: 'Hero Blocks',
   },
   admin: {
-    group: 'Heroes',
+    group: 'Content',
   },
   fields: [
     {

@@ -4,8 +4,8 @@ export const FaqTipsSlider: Block = {
   slug: 'faqTipsSlider',
   imageURL: '/assets/blocks-preview/faqtips.png',
   labels: {
-    singular: 'Faq Tips Block',
-    plural: 'Faq Tips Blocks',
+    singular: 'Diy Tips Slider',
+    plural: 'Diy Tips Sliders',
   },
   admin: {
     group: 'Sliders',
