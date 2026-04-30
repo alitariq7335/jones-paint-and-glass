@@ -32,7 +32,6 @@ import FeatureList from "@/app/components/FeatureList";
 import FeaturedBrand from "@/app/components/FeaturedBrand";
 import FaqTipsSlider from "@/app/components/FaqTipsSlider";
 import ExteriorServices from "@/app/components/Exteriorservices";
-import ExteriorHero from "@/app/components/ExteriorHero";
 
 export const dynamic = "force-dynamic";
 
@@ -61,7 +60,6 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   featureList:FeatureList,
   featuredBrand:FeaturedBrand,
   exteriorServices:ExteriorServices,
-  exteriorHero:ExteriorHero,
 
 };
 
