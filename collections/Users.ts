@@ -5,11 +5,11 @@ const Users: CollectionConfig = {
   auth: true,
   admin: {
     useAsTitle: 'email',
-    group: 'Admin', // ✅ shows in sidebar under Admin group
+    group: 'Settings', 
   },
   access: {
     read: () => true,
-    update: ({ req }) => !!req.user, // ✅ any logged in user can update
+    update: ({ req }) => !!req.user, 
   },
   fields: [
     {

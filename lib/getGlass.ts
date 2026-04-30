@@ -1,31 +1,30 @@
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 
-export async function getLocations() {
+export async function getGlass() {
   try {
     const payload = await getPayload({ config })
     const result = await payload.find({
-      collection: 'locations' as any,
+      collection: 'glass' as any,
       limit: 100,
       sort: 'name',
       depth: 2,
     })
     return result.docs ?? []
   } catch (err) {
-    console.error('getLocations error:', err)
+    console.error('getGlass error:', err)
     return []
   }
 }
 
-export async function getLocationBySlug(slug: string) {
+export async function getGlassBySlug(slug: string) {
   try {
     const payload = await getPayload({ config })
 
-    // ✅ Normalize slug to handle Railway URL encoding differences
     const normalizedSlug = decodeURIComponent(slug).toLowerCase().trim()
 
     const result = await payload.find({
-      collection: 'locations' as any,
+      collection: 'glass' as any,
       where: {
         or: [
           { slug: { equals: normalizedSlug } },
@@ -36,13 +35,13 @@ export async function getLocationBySlug(slug: string) {
       limit: 1,
     })
 
-    console.log('getLocationBySlug input:', slug)
-    console.log('getLocationBySlug normalized:', normalizedSlug)
-    console.log('getLocationBySlug result:', JSON.stringify(result.docs[0]?.slug))
+    console.log('getGlassBySlug input:', slug)
+    console.log('getGlassBySlug normalized:', normalizedSlug)
+    console.log('getGlassBySlug result:', JSON.stringify(result.docs[0]?.slug))
 
     return result.docs[0] ?? null
   } catch (err) {
-    console.error('getLocationBySlug error:', err)
+    console.error('getGlassBySlug error:', err)
     return null
   }
 }

@@ -25,6 +25,10 @@ import Reviews from "@/app/components/Reviews";
 import StoreLocation from "@/app/components/StoreLocation";
 import LocationInfo from "@/app/components/LocationInfo";
 import { getLocationBySlug } from "@/lib/getLocations";
+import { getPaintBySlug } from "@/lib/getPaint";
+import { getGlassBySlug } from "@/lib/getGlass";
+import { getDoorsBySlug } from "@/lib/getDoors";
+import faqTipsSlider from "@/app/components/FaqTipsSlider";
 
 export const dynamic = "force-dynamic";
 
@@ -46,6 +50,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   aboutLocation: Aboutlocation,
   quickLinks: QuickLinks,
   faqs: Faqs,
+  faqTipsSlider: faqTipsSlider,
   reviews: Reviews,
   storeLocation: StoreLocation,
   locationInfo: LocationInfo,
@@ -57,10 +62,19 @@ export default async function DynamicPage({
   params: Promise<{ slug: string }>;
 }) {
   const navData = await getNavigation();
-  const { slug } = await params;
+  const { slug: rawSlug } = await params;
+
+  // ✅ Normalize slug — decode URI encoding, strip slashes, lowercase
+  const slug = decodeURIComponent(rawSlug)
+    .replace(/^\/+/, '')
+    .toLowerCase()
+    .trim()
+
+  console.log('DynamicPage → slug:', slug)
+
   const payload = await getPayload({ config });
 
-  //  — Check Pages collection first
+  // ── 1. Check Pages collection first
   const { docs } = await (payload as any).find({
     collection: "pages",
     where: { slug: { equals: slug } },
@@ -70,28 +84,76 @@ export default async function DynamicPage({
 
   const page = docs[0];
 
-  //  — If not found in Pages, check Locations collection
   if (!page) {
+    // ── 2. Check Locations
     const location = await getLocationBySlug(slug);
+    if (location) {
+      return (
+        <>
+          <Navbar navData={navData} />
+          {(location.blocks ?? []).map((block: any, i: number) => {
+            const Component = blockMap[block.blockType];
+            if (!Component) return null;
+            return <Component key={i} {...block} />;
+          })}
+          <Footer />
+        </>
+      );
+    }
 
-    //  — If not found in Locations either, show 404
-    if (!location) return notFound();
+    // ── 3. Check Paint
+    const paintItem = await getPaintBySlug(slug);
+    if (paintItem) {
+      return (
+        <>
+          <Navbar navData={navData} />
+          {(paintItem.blocks ?? []).map((block: any, i: number) => {
+            const Component = blockMap[block.blockType];
+            if (!Component) return null;
+            return <Component key={i} {...block} />;
+          })}
+          <Footer />
+        </>
+      );
+    }
 
-    //  — Render location page with its blocks
-    return (
-      <>
-        <Navbar navData={navData} />
-        {(location.blocks ?? []).map((block: any, i: number) => {
-          const Component = blockMap[block.blockType];
-          if (!Component) return null;
-          return <Component key={i} {...block} />;
-        })}
-        <Footer />
-      </>
-    );
+    // ── 4. Check Glass
+    const glassItem = await getGlassBySlug(slug);
+    if (glassItem) {
+      return (
+        <>
+          <Navbar navData={navData} />
+          {(glassItem.blocks ?? []).map((block: any, i: number) => {
+            const Component = blockMap[block.blockType];
+            if (!Component) return null;
+            return <Component key={i} {...block} />;
+          })}
+          <Footer />
+        </>
+      );
+    }
+
+    // ── 5. Check Doors
+    const doorsItem = await getDoorsBySlug(slug);
+    if (doorsItem) {
+      return (
+        <>
+          <Navbar navData={navData} />
+          {(doorsItem.blocks ?? []).map((block: any, i: number) => {
+            const Component = blockMap[block.blockType];
+            if (!Component) return null;
+            return <Component key={i} {...block} />;
+          })}
+          <Footer />
+        </>
+      );
+    }
+
+    // ── 6. Nothing found → 404
+    return notFound();
   }
 
-  //  — Render normal page with its blocks
+  // ── Render normal Page with its blocks
   return (
     <>
       <Navbar navData={navData} />
