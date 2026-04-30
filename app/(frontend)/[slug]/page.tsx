@@ -32,6 +32,7 @@ import FeatureList from "@/app/components/FeatureList";
 import FeaturedBrand from "@/app/components/FeaturedBrand";
 import FaqTipsSlider from "@/app/components/FaqTipsSlider";
 import ExteriorServices from "@/app/components/Exteriorservices";
+import Brands from "@/app/components/Brands";
 
 export const dynamic = "force-dynamic";
 
@@ -60,7 +61,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   featureList:FeatureList,
   featuredBrand:FeaturedBrand,
   exteriorServices:ExteriorServices,
-
+  brands:Brands,
 };
 
 export default async function DynamicPage({
