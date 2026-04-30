@@ -4,8 +4,12 @@ import { ReviewsBlock } from '@/blocks/ReviewsBlock'
 import { StoreLocationBlock } from '@/blocks/StoreLocationBlock'
 import type { CollectionConfig } from 'payload'
 
-const Locations: CollectionConfig = {
-  slug: 'locations',
+const Glass: CollectionConfig = {
+  slug: 'glass',
+  labels: {
+    singular: 'Glass',
+    plural: 'Glass',      
+  },
   admin: {
     useAsTitle: 'name',
     group: 'Products & Services',
@@ -18,7 +22,7 @@ const Locations: CollectionConfig = {
     delete: ({ req }) => !!req.user,
   },
   fields: [
-   {
+    {
       name: 'name',
       type: 'text',
       label: 'Location Name',
@@ -34,7 +38,6 @@ const Locations: CollectionConfig = {
         description: 'e.g. "vernal" → /locations/vernal',
       },
     },
-   
     {
       name: 'services',
       type: 'text',
@@ -60,4 +63,4 @@ const Locations: CollectionConfig = {
   ],
 }
 
-export default Locations
+export default Glass

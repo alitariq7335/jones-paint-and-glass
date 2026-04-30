@@ -10,6 +10,9 @@ import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage'
 import { cloudinaryAdapter } from './lib/cloudinaryAdapter'
 import Users from './collections/Users'
 import Locations from './collections/Locations'
+import Paint from './collections/Paint'
+import Glass from './collections/Glass'
+import Doors from './collections/Doors'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -46,6 +49,9 @@ export default buildConfig({
     Media,
     Pages,
     Locations,
+    Paint,
+    Glass,
+    Doors,
   ],
 
   // ✅ Navigation moved here as a global

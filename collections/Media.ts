@@ -4,7 +4,12 @@ const Media: CollectionConfig = {
   slug: 'media',
   admin: {
     useAsTitle: 'alt',
+    group: 'Settings',
     defaultColumns: ['filename', 'alt', 'url', 'cloudinaryPublicId', 'updatedAt'],
+  },
+  labels: {
+    singular: 'Media Library',
+    plural: 'Media Library',      
   },
   access: {
     read: () => true,

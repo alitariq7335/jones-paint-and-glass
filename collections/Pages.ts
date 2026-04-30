@@ -22,7 +22,12 @@ const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
+    group: 'Pages',
     defaultColumns: ['title', 'slug', 'updatedAt'],
+  },
+  labels: {
+    singular: 'Page',
+    plural: 'All Pages',      
   },
   access: {
     read: () => true,           // ✅ anyone can read

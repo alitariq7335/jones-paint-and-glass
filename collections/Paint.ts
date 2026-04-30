@@ -1,11 +1,21 @@
+import { ExteriorHeroBlock } from '@/blocks/ExteriorHero.block'
+import { ExteriorServicesBlock } from '@/blocks/ExteriorServices.block'
+import { FaqTipsSlider } from '@/blocks/FaqTipsSlider.block'
+import { FeaturedBrandBlock } from '@/blocks/FeaturedBrandBlock'
+import { FeatureListBlock } from '@/blocks/FeatureListBlock'
 import { HeroBlock } from '@/blocks/Hero.block'
+import { ImageSliderBlock } from '@/blocks/ImageSlider.block'
 import { LocationInfoBlock } from '@/blocks/LocationInfo.block'
 import { ReviewsBlock } from '@/blocks/ReviewsBlock'
 import { StoreLocationBlock } from '@/blocks/StoreLocationBlock'
 import type { CollectionConfig } from 'payload'
 
-const Locations: CollectionConfig = {
-  slug: 'locations',
+const Paint: CollectionConfig = {
+  slug: 'paint',
+  labels: {
+    singular: 'Paint',
+    plural: 'Paint',
+  },
   admin: {
     useAsTitle: 'name',
     group: 'Products & Services',
@@ -52,12 +62,15 @@ const Locations: CollectionConfig = {
       type: 'blocks',
       label: 'Page Blocks',
       blocks: [
-        StoreLocationBlock,
-        LocationInfoBlock,
-        ReviewsBlock,
+        ExteriorHeroBlock,
+        FeatureListBlock,
+        FeaturedBrandBlock,
+        ExteriorServicesBlock,
+        ImageSliderBlock,
+        FaqTipsSlider,
       ],
     },
   ],
 }
 
-export default Locations
+export default Paint

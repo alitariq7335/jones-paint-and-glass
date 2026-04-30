@@ -4,8 +4,8 @@ import { ReviewsBlock } from '@/blocks/ReviewsBlock'
 import { StoreLocationBlock } from '@/blocks/StoreLocationBlock'
 import type { CollectionConfig } from 'payload'
 
-const Locations: CollectionConfig = {
-  slug: 'locations',
+const Doors: CollectionConfig = {
+  slug: 'doors',
   admin: {
     useAsTitle: 'name',
     group: 'Products & Services',
@@ -60,4 +60,4 @@ const Locations: CollectionConfig = {
   ],
 }
 
-export default Locations
+export default Doors
