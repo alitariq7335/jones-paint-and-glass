@@ -30,8 +30,8 @@ import { getGlassBySlug } from "@/lib/getGlass";
 import { getDoorsBySlug } from "@/lib/getDoors";
 import FeatureList from "@/app/components/FeatureList";
 import FeaturedBrand from "@/app/components/FeaturedBrand";
-import ExteriorServices from "@/app/components/Exteriorservices";
 import FaqTipsSlider from "@/app/components/FaqTipsSlider";
+import ExteriorServices from "@/app/components/Exteriorservices";
 import ExteriorHero from "@/app/components/ExteriorHero";
 
 export const dynamic = "force-dynamic";
@@ -58,10 +58,10 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   reviews: Reviews,
   storeLocation: StoreLocation,
   locationInfo: LocationInfo,
-  exteriorHero:ExteriorHero,
   featureList:FeatureList,
   featuredBrand:FeaturedBrand,
   exteriorServices:ExteriorServices,
+  exteriorHero:ExteriorHero,
 
 };
 
