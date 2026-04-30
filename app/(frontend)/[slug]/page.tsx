@@ -28,7 +28,6 @@ import { getLocationBySlug } from "@/lib/getLocations";
 import { getPaintBySlug } from "@/lib/getPaint";
 import { getGlassBySlug } from "@/lib/getGlass";
 import { getDoorsBySlug } from "@/lib/getDoors";
-import Paint from "@/app/components/Paint";
 import faqTipsSlider from "@/app/components/FaqTipsSlider";
 
 export const dynamic = "force-dynamic";
@@ -163,7 +162,6 @@ export default async function DynamicPage({
         if (!Component) return null;
         return <Component key={i} {...block} />;
       })}
-      <Paint />
       <Footer />
     </>
   );
