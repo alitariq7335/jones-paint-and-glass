@@ -6,6 +6,7 @@ export const BrandsBlock: Block = {
     singular: 'Brands',
     plural: 'Brands',
   },
+  imageURL: '/assets/blocks-preview/brands.png',
   fields: [
     {
       name: 'label',
