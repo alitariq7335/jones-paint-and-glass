@@ -1,5 +1,4 @@
 import { BrandsBlock } from '@/blocks/Brandsblock.block'
-import { ExteriorHero } from '@/blocks/ExteriorHero.block'
 import { ExteriorServicesBlock } from '@/blocks/ExteriorServices.block'
 import { FaqTipsSlider } from '@/blocks/FaqTipsSlider.block'
 import { FeatureCardsBlock } from '@/blocks/FeatureCards.block'
@@ -7,6 +6,7 @@ import { FeaturedBrandBlock } from '@/blocks/FeaturedBrandBlock'
 import { FeatureListBlock } from '@/blocks/FeatureListBlock'
 import { HeroBlock } from '@/blocks/Hero.block'
 import { ImageSliderBlock } from '@/blocks/ImageSlider.block'
+import { SubHero } from '@/blocks/SubHero.block'
 import type { CollectionConfig } from 'payload'
 
 const Doors: CollectionConfig = {
@@ -46,7 +46,7 @@ const Doors: CollectionConfig = {
       type: 'blocks',
       label: 'Page Blocks',
       blocks: [
-        ExteriorHero,
+        SubHero,
         FeatureListBlock,
         FeaturedBrandBlock,
         ExteriorServicesBlock,

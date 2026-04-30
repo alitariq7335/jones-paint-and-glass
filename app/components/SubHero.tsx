@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-interface ExteriorHeroProps {
+interface SubHeroProps {
   heading?: string;
   description?: string;
   image?: {
@@ -10,11 +10,11 @@ interface ExteriorHeroProps {
   } | null;
 }
 
-export default function ExteriorHero({
+export default function SubHero({
   heading = "Exterior Paint",
   description = "Not all paint is the same. Exterior paint has characteristics that make it better suited for outdoor environments and surfaces.",
   image,
-}: ExteriorHeroProps) {
+}: SubHeroProps) {
   const imageUrl = image?.url?.trim() ? image.url : "/assets/jt/exterior-hero.png";
   const imageAlt = image?.alt?.trim() ? image.alt : heading;
 
