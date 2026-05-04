@@ -1,11 +1,11 @@
 import type { Block } from 'payload'
 
 export const SubHero: Block = {
-  slug: 'subpage-hero',
+  slug: 'subHero',
   imageURL: '/assets/blocks-preview/exteriorhero.png',
   labels: {
-    singular: 'Hero Block',
-    plural: 'Hero Blocks',
+    singular: 'Subpages Hero Section',
+    plural: 'Subpages Hero Sections',
   },
   admin: {
     group: 'Content',
