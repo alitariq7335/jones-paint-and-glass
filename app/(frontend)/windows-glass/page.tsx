@@ -58,7 +58,7 @@ export default async function GlassPage() {
                 glassItems.map((item: any, index: number) => (
                   <Link
                     key={item.id}
-                    href={`/glass/${item.slug}`}
+                    href={`${item.slug}`}
                     className="flex items-center justify-between px-5 py-7 rounded-[16px] border transition-colors group"
                     style={{
                       background: index === 0 ? '#0052C6' : 'white',
