@@ -107,7 +107,8 @@ export default function Inquireform({
 
           {/* Right: Form */}
           <div className="relative z-2 flex flex-1 w-full px-2 justify-center xl:justify-start" id='inquire-form'>
-            <div className="relative z-10 w-full max-w-2xl rounded-2xl p-6 md:px-15 md:py-10 bg-black">
+            <div className="relative z-10 w-full max-w-2xl rounded-2xl p-6 md:px-15 md:py-10 "
+            style={{ background: "linear-gradient(180deg, #0052C6 28.46%, #002559 100%)" }} >
 
               {submitted ? (
                 <div className="text-center py-12">
