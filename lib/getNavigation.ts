@@ -44,8 +44,8 @@ export async function getNavigation() {
 
     const glassNavItem = {
       type: 'dropdown',
-      label: 'Glass',
-      href: '/glass',
+      label: 'Windows & Glass',
+      href: '/windows-glass',
       items: glassItems.map((item: any) => ({
         label: item.name,
         href: `/${item.slug}`,

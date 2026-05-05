@@ -87,7 +87,7 @@ export const StoreLocationBlock: Block = {
       type: 'array',
       label: 'Service Cards',
       minRows: 1,
-      maxRows: 4,
+      maxRows: 8,
       fields: [
         {
           name: 'title',
