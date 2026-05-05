@@ -35,6 +35,7 @@ import ExteriorServices from "@/app/components/Exteriorservices";
 import Brands from "@/app/components/Brands";
 import SubHero from "@/app/components/SubHero";
 import FeatureCards from "@/app/components/FeatureCards";
+import Cta from "@/app/components/Cta";
 
 
 export const dynamic = "force-dynamic";
@@ -67,6 +68,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   exteriorServices:ExteriorServices,
   brands:Brands,
   subHero:SubHero,
+  cta: Cta,
 };
 
 export default async function DynamicPage({

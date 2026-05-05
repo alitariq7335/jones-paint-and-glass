@@ -1,4 +1,5 @@
 import { BrandsBlock } from '@/blocks/Brandsblock.block'
+import { CtaBlock } from '@/blocks/Cta.block'
 import { ExteriorServicesBlock } from '@/blocks/ExteriorServices.block'
 import { FaqTipsSlider } from '@/blocks/FaqTipsSlider.block'
 import { FeatureCardsBlock } from '@/blocks/FeatureCards.block'
@@ -54,6 +55,7 @@ const Doors: CollectionConfig = {
         FaqTipsSlider,
         BrandsBlock,
         FeatureCardsBlock,
+        CtaBlock,
       ],
     },
   ],
