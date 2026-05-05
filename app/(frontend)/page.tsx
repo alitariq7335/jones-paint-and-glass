@@ -21,6 +21,7 @@ import Aboutlocation from "@/app/components/Aboutlocation"
 import QuickLinks from "@/app/components/QuickLinks"
 import Faqs from '@/app/components/Faqs'
 import faqTipsSlider from "@/app/components/FaqTipsSlider";
+import FeatureCards from "@/app/components/FeatureCards";
 
 
 
@@ -46,7 +47,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   quickLinks: QuickLinks,
   faqs: Faqs,
   faqTipsSlider: faqTipsSlider,
-  
+  featureCards: FeatureCards,
 };
 
 export default async function Home() {
