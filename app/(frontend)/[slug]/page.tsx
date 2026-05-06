@@ -36,9 +36,6 @@ import Brands from "@/app/components/Brands";
 import SubHero from "@/app/components/SubHero";
 import FeatureCards from "@/app/components/FeatureCards";
 import Cta from "@/app/components/Cta";
-import RecommendBlog from "@/app/components/RecommendBlog";
-import BlogDetail from "@/app/components/BlogDetail";
-import BlogSearch from "@/app/components/BlogSearch";
 
 export const dynamic = "force-dynamic";
 
@@ -71,9 +68,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   brands:Brands,
   subHero:SubHero,
   cta: Cta,
-  recommendBlog:RecommendBlog,
-  blogDetail: BlogDetail,
-  blogSearch: BlogSearch,
+
 };
 
 export default async function DynamicPage({
