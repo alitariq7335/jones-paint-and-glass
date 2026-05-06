@@ -2,7 +2,6 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 import { notFound } from 'next/navigation'
 import { getNavigation } from '@/lib/getNavigation'
-import { getFooter } from '@/lib/getFooter'
 import Navbar from '@/app/components/Navbar'
 import Footer from '@/app/components/Footer'
 import Image from 'next/image'
@@ -17,7 +16,6 @@ export default async function BlogPage({
 }) {
   const { slug } = await params
   const navData = await getNavigation()
-  const footerData = await getFooter()
 
   const payload = await getPayload({ config })
   const { docs } = await (payload as any).find({
@@ -184,7 +182,7 @@ export default async function BlogPage({
         </div>
       </article>
 
-      <Footer {...footerData} />
+      <Footer />
     </>
   )
 }
