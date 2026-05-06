@@ -13,6 +13,7 @@ import Locations from './collections/Locations'
 import Paint from './collections/Paint'
 import Glass from './collections/Glass'
 import Doors from './collections/Doors'
+import Blogs from './collections/Blogs'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -52,6 +53,7 @@ export default buildConfig({
     Paint,
     Glass,
     Doors,
+    Blogs,
   ],
 
   // ✅ Navigation moved here as a global

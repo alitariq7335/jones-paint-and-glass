@@ -7,6 +7,9 @@ export const FaqsBlock: Block = {
     singular: 'FAQs',
     plural: 'FAQs',
   },
+  admin: {
+    group: 'Content Sections',
+  },
   fields: [
     {
       name: 'heading',

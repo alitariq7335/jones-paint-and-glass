@@ -2,7 +2,7 @@ import type { Block } from 'payload'
 
 export const InquireFormBlock: Block = {
   slug: 'inquireForm',
-  imageURL: '/assets/blocks-preview/inquiry.png',
+  imageURL: '/assets/blocks-preview/inquire.png',
   labels: {
     singular: 'Inquire Form Block',
     plural: 'Inquire Form Blocks',
