@@ -26,6 +26,7 @@ import FeatureCards from "@/app/components/FeatureCards";
 
 
 
+
 export const dynamic = 'force-dynamic';
 
 const blockMap: Record<string, React.ComponentType<any>> = {
@@ -48,6 +49,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   faqs: Faqs,
   faqTipsSlider: faqTipsSlider,
   featureCards: FeatureCards,
+
 };
 
 export default async function Home() {

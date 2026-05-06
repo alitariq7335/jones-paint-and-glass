@@ -17,6 +17,10 @@ import { AboutLocationBlock } from '@/blocks/AboutLocationBlock'
 import { QuickLinksBlock } from '@/blocks/QuickLinksBlock'
 import { FaqsBlock } from '@/blocks/Faqsblock.block'
 import { FaqTipsSlider } from '@/blocks/FaqTipsSlider.block'
+import { RecommendBlog } from '@/blocks/RecommendBlog.block'
+import { BlogDetail } from '@/blocks/BlogDetail.block'
+import { BlogSearch } from '@/blocks/BlogSearch.block'
+
 
 
 const Pages: CollectionConfig = {
@@ -74,6 +78,9 @@ const Pages: CollectionConfig = {
         QuickLinksBlock,
         FaqsBlock,
         FaqTipsSlider,
+        RecommendBlog,
+        BlogDetail,
+        BlogSearch,
       ],
     },
   ],
