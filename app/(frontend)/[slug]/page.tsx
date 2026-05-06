@@ -36,6 +36,11 @@ import Brands from "@/app/components/Brands";
 import SubHero from "@/app/components/SubHero";
 import FeatureCards from "@/app/components/FeatureCards";
 import Cta from "@/app/components/Cta";
+import RecommendBlog from "@/app/components/Recommendblog";
+import BlogSearch from "@/app/components/Blogsearch";
+import BlogDetail from "@/app/components/Blogdetail";
+
+
 
 export const dynamic = "force-dynamic";
 
@@ -68,6 +73,9 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   brands:Brands,
   subHero:SubHero,
   cta: Cta,
+  recommendblog:RecommendBlog,
+  blogSearch: BlogSearch,
+  blogDetail: BlogDetail,
 
 };
 
