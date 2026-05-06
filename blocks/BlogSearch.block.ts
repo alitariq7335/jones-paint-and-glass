@@ -1,6 +1,6 @@
 import type { Block } from 'payload'
 
-export const BlogSearchBlock: Block = {
+export const BlogSearch: Block = {
   slug: 'blogSearch',
   imageURL: '/assets/blocks-preview/search.png',
 

@@ -1,6 +1,6 @@
 import type { Block } from 'payload'
 
-export const BlogDetailBlock: Block = {
+export const BlogDetail: Block = {
   slug: 'blogDetail',
   imageURL: '/assets/blocks-preview/blogdetail.png',
   labels: {

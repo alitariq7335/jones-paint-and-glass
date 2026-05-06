@@ -1,6 +1,6 @@
 import type { Block } from 'payload'
 
-export const RecommendBlogBlock: Block = {
+export const RecommendBlog: Block = {
   slug: 'recommendBlog',
   imageURL: '/assets/blocks-preview/recommended.png',
   labels: {
