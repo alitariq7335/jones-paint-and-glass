@@ -79,7 +79,7 @@ export default function BlogDetail({
               if (!blog) return null
 
               const summary = extractSummary(blog.content)
-              const href = blog.slug ? `/${blog.slug}` : '#'
+              const href = blog.slug ? `/blog/${blog.slug}` : '#'
 
               return (
                 <div
