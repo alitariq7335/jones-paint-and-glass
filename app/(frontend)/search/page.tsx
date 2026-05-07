@@ -85,7 +85,7 @@ export default async function SearchPage({
                 return (
                   <Link
                     key={blog.id}
-                    href={`/blog/${blog.slug}`}
+                    href={`/${blog.slug}`}
                     className="group flex flex-col gap-3"
                   >
                     {/* Image */}
