@@ -36,7 +36,7 @@ import Brands from "@/app/components/Brands";
 import SubHero from "@/app/components/SubHero";
 import FeatureCards from "@/app/components/FeatureCards";
 import Cta from "@/app/components/Cta";
-import RecommendBlog from "@/app/components/Recommendblog";
+import RecommendBlog from "@/app/components/RecommendBlogs";
 import BlogSearch from "@/app/components/Blogsearch";
 import BlogDetail from "@/app/components/Blogdetail";
 
@@ -73,7 +73,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   brands:Brands,
   subHero:SubHero,
   cta: Cta,
-  recommendblog:RecommendBlog,
+  recommendBlog:RecommendBlog,
   blogSearch: BlogSearch,
   blogDetail: BlogDetail,
 
