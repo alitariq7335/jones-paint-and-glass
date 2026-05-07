@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // ─── Types ───────────────────────────────────
 type NavSubItem = {
@@ -85,8 +86,6 @@ function DropdownMenu({ label, items, href }: {
       onMouseLeave={close}
     >
       <div className="flex items-center">
-
-        {/* ✅ Label is a link if href provided */}
         {href ? (
           <Link
             href={href}
@@ -100,7 +99,6 @@ function DropdownMenu({ label, items, href }: {
           </span>
         )}
 
-        {/* ✅ Arrow is just visual - no click needed */}
         <span className="p-2 text-heading">
           <svg
             className={`w-4 h-4 mt-0.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
@@ -111,7 +109,6 @@ function DropdownMenu({ label, items, href }: {
         </span>
       </div>
 
-      {/* ✅ Dropdown stays open when hovering over it */}
       {open && (
         <ul
           role="menu"
@@ -161,8 +158,6 @@ function MobileMenu({ items, ctaText, ctaLink, onClose }: {
         ) : (
           <div key={item.label}>
             <div className="flex items-center justify-between w-full">
-
-              {/* ✅ Mobile label is a link if href provided */}
               {item.href ? (
                 <Link
                   href={item.href}
@@ -176,8 +171,6 @@ function MobileMenu({ items, ctaText, ctaLink, onClose }: {
                   {item.label}
                 </span>
               )}
-
-              {/* ✅ Arrow toggles accordion on mobile */}
               <button
                 onClick={() => toggleAccordion(item.label)}
                 aria-expanded={openLabel === item.label}
@@ -224,9 +217,78 @@ function MobileMenu({ items, ctaText, ctaLink, onClose }: {
   );
 }
 
+// ─── SearchBar ────────────────────────────────
+function SearchBar({ onClose }: { onClose: () => void }) {
+  const [query, setQuery] = useState('');
+  const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // ✅ Auto focus when opened
+  useEffect(() => {
+    inputRef.current?.focus()
+  }, [])
+
+  const handleSearch = () => {
+    if (!query.trim()) return
+    router.push(`/search?q=${encodeURIComponent(query.trim())}`)
+    onClose()
+  }
+
+  return (
+    <div className="w-full border-t border-default bg-neutral-primary px-4 py-4">
+      <div className="container mx-auto flex items-center gap-4">
+
+        {/* Search input */}
+        <div
+          className="flex items-center gap-2 flex-1 py-2"
+          style={{ borderBottom: '2px solid #0052C6' }}
+        >
+          <svg className="w-5 h-5 flex-shrink-0 text-[#0052C6]" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
+            <path d="M16.5 16.5L21 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+          <input
+            ref={inputRef}
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+            placeholder="Search blogs..."
+            className="w-full outline-none border-none text-[16px] ring-0 bg-transparent"
+          />
+        </div>
+
+        {/* Go button */}
+        <button
+          onClick={handleSearch}
+          className="group inline-flex border-2 border-[#0052C6] cursor-pointer text-[#0052C6] font-semibold text-[16px] gap-1 px-4 py-2 rounded-[8px] items-center transition-colors whitespace-nowrap hover:bg-[#0052C6] hover:text-white"
+        >
+          Go
+          <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="p-2 text-heading hover:text-fg-brand transition-colors"
+          aria-label="Close search"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  )
+}
+
 // ─── Navbar (main export) ─────────────────────
 export default function Navbar({ navData }: { navData: NavData }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false); // ✅ search state
 
   const navItems = (navData?.navItems as NavItem[]) ?? FALLBACK_NAV_ITEMS;
   const ctaText = navData?.ctaText ?? "Get a Quote";
@@ -268,16 +330,24 @@ export default function Navbar({ navData }: { navData: NavData }) {
           <img src={logoUrl} className="flex lg:hidden h-24 -mb-12 mr-12" alt={logoAlt} />
         </Link>
 
-        {/* CTA + Hamburger */}
+        {/* CTA + Search + Hamburger */}
         <div className="flex items-center gap-3">
 
-          {/* Search Button */}
+          {/* ✅ Search Icon Button — toggles search bar */}
           <button
             aria-label="Search"
-            className="hidden lg:flex gap-2 items-center justify-center w-10 h-10 rounded-full hover:bg-neutral-secondary-soft cursor-pointer"
+            onClick={() => {
+              setSearchOpen((prev) => !prev)
+              setMobileOpen(false) // close mobile menu if open
+            }}
+            className={`flex gap-2 items-center justify-center w-10 h-10 rounded-full transition-colors cursor-pointer
+              ${searchOpen
+                ? 'bg-[#0052C6] text-white'
+                : 'hover:bg-neutral-secondary-soft text-[#0052C6]'
+              }`}
           >
             <svg
-              className="w-5 h-5 text-[#0052C6]"
+              className="w-5 h-5"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -303,7 +373,10 @@ export default function Navbar({ navData }: { navData: NavData }) {
 
           {/* Hamburger */}
           <button
-            onClick={() => setMobileOpen((prev) => !prev)}
+            onClick={() => {
+              setMobileOpen((prev) => !prev)
+              setSearchOpen(false) // close search if open
+            }}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -321,6 +394,11 @@ export default function Navbar({ navData }: { navData: NavData }) {
           </button>
         </div>
       </div>
+
+      {/* ✅ Search Bar — slides down below navbar */}
+      {searchOpen && (
+        <SearchBar onClose={() => setSearchOpen(false)} />
+      )}
 
       {/* Mobile Menu */}
       {mobileOpen && (

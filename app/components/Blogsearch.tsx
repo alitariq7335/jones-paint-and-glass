@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface BlogSearchBlockProps {
   heading?: string;
@@ -11,11 +12,12 @@ export default function BlogSearch({
   placeholder = 'Search...',
 }: BlogSearchBlockProps) {
   const [query, setQuery] = useState('');
+  const router = useRouter();
 
   const handleSearch = () => {
     if (!query.trim()) return;
-    // wire up to your search/filter logic here
-    console.log('Search:', query);
+    // ✅ Navigate to /search?q=query
+    router.push(`/search?q=${encodeURIComponent(query.trim())}`)
   };
 
   return (
