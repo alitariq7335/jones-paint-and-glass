@@ -22,7 +22,7 @@ import QuickLinks from "@/app/components/QuickLinks"
 import Faqs from '@/app/components/Faqs'
 import faqTipsSlider from "@/app/components/FaqTipsSlider";
 import FeatureCards from "@/app/components/FeatureCards";
-import RecommendBlog from "@/app/components/Recommendblog";
+import RecommendBlog from "@/app/components/RecommendBlogs";
 import BlogSearch from "@/app/components/Blogsearch";
 import BlogDetail from "@/app/components/Blogdetail";
 
@@ -52,7 +52,7 @@ const blockMap: Record<string, React.ComponentType<any>> = {
   faqs: Faqs,
   faqTipsSlider: faqTipsSlider,
   featureCards: FeatureCards,
-  recommendblog:RecommendBlog,
+  recommendBlog:RecommendBlog,
   blogDetail: BlogDetail,
   blogSearch: BlogSearch,
 };
